@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Kalender | SIPARTA </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/Kota Bengkulu.png">
+
+        <!-- plugin css -->
+        <link href="assets/libs/@fullcalendar/core/main.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/libs/@fullcalendar/daygrid/main.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/libs/@fullcalendar/bootstrap/main.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/libs/@fullcalendar/timegrid/main.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+
+        <!-- preloader css -->
+        <link rel="stylesheet" href="assets/css/preloader.min.css" type="text/css" />
+
+        <!-- Bootstrap Css -->
+        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body data-topbar="dark">
+
+    <!-- <body data-layout="horizontal"> -->
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            <a href="dashboard.html" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="assets/images/Kota Bengkulu.png" alt="" height="30">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="assets/images/Kota Bengkulu.png" alt="" height="24"> <span class="logo-txt">SIPARTA</span>
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button" class="btn btn-sm px-3 font-size-16 header-item" id="vertical-menu-btn">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>                          
+                    </div>
+
+                    <div class="d-flex">
+                        <div class="">
+                            <span class="logo">
+                                <img src="#" alt="" height="24"> <span class="logo-txt" style="color: white;">SISTEM INFORMASI PARIWISATA KOTA BENGKULU</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex">
+                        <div class="dropdown d-none d-lg-inline-block ms-1">
+                            <button type="button" class="btn header-item"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i data-feather="grid" class="icon-lg"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                                <div class="p-2">
+                                    <div class="row g-0">
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="https://pariwisata.bengkulukota.go.id/" target="_blank">
+                                                <img src="assets/images/brands/bengkulu.png" alt="">
+                                                <span>Dinas Pariwisata</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="https://www.instagram.com/dinaspariwisatakotabengkulu/" target="_blank">
+                                                <img src="assets/images/brands/instagram.png" alt="">
+                                                <span>Instagram</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="https://www.facebook.com/profile.php?id=100071511889475" target="_blank">
+                                                <img src="assets/images/brands/facebook.png" alt="">
+                                                <span>Facebook</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item bg-light-subtle border-start border-end" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
+                                    alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium">Paul K.</span>
+                                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <a class="dropdown-item" href="apps-contacts-profile.html"><i class="mdi mdi-face-profile font-size-16 align-middle me-1"></i> Profile</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="auth-logout.html"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <div data-simplebar class="h-100">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <li class="menu-title">Menu</li>
+
+                            <li>
+                                <a href="dashboard.html">
+                                    <i class="bx bx-home-alt"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="kalender.html">
+                                    <i class="bx bx-calendar-event"></i>
+                                    <span>Kalender</span>
+                                </a>
+                            </li>
+
+                            <li class="menu-title" data-key="t-apps">Apps</li>
+                
+                            <li>
+                                <a href="wisata.html">
+                                    <i class="bx bx-photo-album"></i>
+                                    <span>Wisata</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="hotel.html">
+                                    <i class="bx bx-hotel"></i>
+                                    <span>Hotel</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="kuliner_oleh.html">
+                                    <i class="bx bx-food-menu"></i>
+                                    <span>Kuliner dan Oleh-Oleh</span>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                        
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+            
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0 font-size-18">Kalender</h4>
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Menu</a></li>
+                                            <li class="breadcrumb-item active">Kalender</li>
+                                        </ol>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row">
+                            <div class="col-12">
+                               
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-grid">
+                                                    <button class="btn font-16 btn-primary" id="btn-new-event"><i class="mdi mdi-plus-circle-outline"></i> Create
+                                                        New Event
+                                                    </button>
+                                                </div>
+                                                
+                                                <div id="external-events" class="mt-2">
+                                                    <br>
+                                                    <p class="text-muted">Drag and drop your event or click in the calendar</p>
+                                                    <div class="external-event fc-event text-success bg-success-subtle" data-class="bg-success">
+                                                        <i class="mdi mdi-checkbox-blank-circle font-size-11 me-2"></i>New Event Planning
+                                                    </div>                    
+                                                </div>
+
+                                                <div class="row justify-content-center mt-5">
+                                                    <div class="col-lg-12 col-sm-6">
+                                                        <img src="assets/images/undraw-calendar.svg" alt="" class="img-fluid d-block">
+                                                    </div>
+                                                </div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div> <!-- end col-->
+
+                                    <div class="col-xl-9 col-lg-8">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div id="calendar"></div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- end col -->
+
+                                </div> 
+
+                                <div style='clear:both'></div>
+
+
+                                <!-- Add New Event MODAL -->
+                                <div class="modal fade" id="event-modal" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header py-3 px-4 border-bottom-0">
+                                                <h5 class="modal-title" id="modal-title">Event</h5>
+
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+
+                                            </div>
+                                            <div class="modal-body p-4">
+                                                <form class="needs-validation" name="event-form" id="form-event" novalidate>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Event Name</label>
+                                                                <input class="form-control" placeholder="Insert Event Name"
+                                                                    type="text" name="title" id="event-title" required value="" />
+                                                                <div class="invalid-feedback">Please provide a valid event name</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Category</label>
+                                                                <select class="form-control form-select" name="category" id="event-category">
+                                                                    <option  selected> --Select-- </option>
+                                                                    <option value="bg-danger">Danger</option>
+                                                                    <option value="bg-success">Success</option>
+                                                                    <option value="bg-primary">Primary</option>
+                                                                    <option value="bg-info">Info</option>
+                                                                    <option value="bg-dark">Dark</option>
+                                                                    <option value="bg-warning">Warning</option>
+                                                                </select>
+                                                                <div class="invalid-feedback">Please select a valid event category</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-2">
+                                                        <div class="col-6">
+                                                            <button type="button" class="btn btn-danger" id="btn-delete-event">Delete</button>
+                                                        </div>
+                                                        <div class="col-6 text-end">
+                                                            <button type="button" class="btn btn-light me-1" data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-success" id="btn-save-event">Save</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div> <!-- end modal-content-->
+                                    </div> <!-- end modal dialog-->
+                                </div>
+                                <!-- end modal-->
+
+                            </div>
+                        </div>
+                        
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>document.write(new Date().getFullYear())</script> © Dinas Pariwisata Kota Bengkulu
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                    Design & Develop by <a href="#!" class="text-decoration-underline">R</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        <!-- JAVASCRIPT -->
+        <script src="assets/libs/jquery/jquery.min.js"></script>
+        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="assets/libs/node-waves/waves.min.js"></script>
+        <script src="assets/libs/feather-icons/feather.min.js"></script>
+        <!-- pace js -->
+        <script src="assets/libs/pace-js/pace.min.js"></script>
+
+        <script src="assets/libs/@fullcalendar/core/main.min.js"></script>
+        <script src="assets/libs/@fullcalendar/bootstrap/main.min.js"></script>
+        <script src="assets/libs/@fullcalendar/daygrid/main.min.js"></script>
+        <script src="assets/libs/@fullcalendar/timegrid/main.min.js"></script>
+        <script src="assets/libs/@fullcalendar/interaction/main.min.js"></script>
+
+        <!-- Calendar init -->
+        <script src="assets/js/pages/calendar.init.js"></script>
+
+        <script src="assets/js/app.js"></script>
+
+    </body>
+</html>
