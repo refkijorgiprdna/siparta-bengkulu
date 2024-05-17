@@ -23,16 +23,22 @@
                                 </a>
                             </li>  --}}
 
-                            <li class="menu-title" data-key="t-apps">Apps</li>
+                            <li class="menu-title">Apps</li>
 
                             <li>
-                                <a href="javascript: void(0);" class="has-arrow">
+                                <a href="javascript: void(0);" class="has-arrow @if(Request::segment(2) == 'wisata' || Request::segment(2) == 'galeri-wisata') mm-active  @endif">
                                     <i class="bx bx-photo-album"></i>
                                     <span>Wisata</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ route('wisata.index') }}">Data Wisata</a></li>
-                                    <li><a href="{{ route('galeri-wisata.index') }}">Galeri Wisata</a></li>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li class="@if(Request::segment(2) == 'wisata' || Request::segment(2) == 'galeri-wisata') mm-active  @endif"><a href="{{ route('wisata.index') }}">Data Wisata</a></li>
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow">Sub Wisata</a>
+                                        <ul class="sub-menu" aria-expanded="true">
+                                            <li><a href="{{ route('sub-wisata.index') }}">Data Sub Wisata</a></li>
+                                            <li><a href="{{ route('galeri-sub-wisata.index') }}">Galeri Sub Wisata</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
 

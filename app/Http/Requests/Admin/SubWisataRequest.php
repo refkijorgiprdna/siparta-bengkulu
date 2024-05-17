@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GaleriWisataRequest extends FormRequest
+class SubWisataRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,12 @@ class GaleriWisataRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'wisata_id' => 'nullable|integer|exists:wisatas,id',
-            'image' => 'required|image'
+            'wisata_id' => 'required|integer|exists:wisatas,id',
+            'nama' => 'required|max:255',
+            'coordinate' => 'required|max:255',
+            'deskripsi' => 'required',
+            'alamat' => 'required|max:255',
+            'link_video' => 'required|max:255'
         ];
     }
 }

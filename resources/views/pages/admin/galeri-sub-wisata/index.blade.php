@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('title')
-Galeri Wisata | Admin SIPARTA
+Galeri Sub Wisata | Admin SIPARTA
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@ Galeri Wisata | Admin SIPARTA
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Wisata</a></li>
-                        <li class="breadcrumb-item active">Galeri Wisata</li>
+                        <li class="breadcrumb-item active">Galeri Sub Wisata</li>
                     </ol>
                 </div>
 
@@ -29,10 +29,10 @@ Galeri Wisata | Admin SIPARTA
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    {{--  <a href="{{ route('galeri-wisata.create') }}" class="btn btn-primary btn-sm float-end">
+                    <a href="{{ route('galeri-sub-wisata.create') }}" class="btn btn-primary btn-sm float-end">
                         Tambah Galeri Wisata
-                    </a>  --}}
-                    <h4 class="card-title mb-0">Daftar Galeri Wisata {{ $items->first()->wisata->nama }}</h4>
+                    </a>
+                    <h4 class="card-title mb-0">Galeri Sub Wisata di Kota Bengkulu</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -48,16 +48,16 @@ Galeri Wisata | Admin SIPARTA
                             <tbody>
                                 @forelse ($items as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->wisata->nama }}</td>
+                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $item->subwisata->nama }}</td>
                                         <td>
                                             <img src="{{ Storage::url($item->image) }}" alt="" class="img-thumbnail" />
                                         </td>
                                         <td class="text-center">
-                                            <a href="{{ route('galeri-wisata.edit', $item->id) }}" class="btn btn-info">
+                                            <a href="{{ route('galeri-sub-wisata.edit', $item->id) }}" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
-                                            <form action="{{ route('galeri-wisata.destroy', $item->id) }}" method="POST" class="d-inline">
+                                            <form action="{{ route('galeri-sub-wisata.destroy', $item->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger">

@@ -82,7 +82,8 @@ Edit Data Wisata | Admin SIPARTA
                         </div>  --}}
                         <div class="mb-3">
                             <label for="deskripsi">Deskripsi</label>
-                            <textarea name="deskripsi" class="d-block w-100 form-control">{{ $item->deskripsi }}</textarea>
+                            <textarea name="deskripsi" id="deskripsi"></textarea>
+                            {{--  <textarea name="deskripsi" class="d-block w-100 form-control">{{ $item->deskripsi }}</textarea>  --}}
                         </div>
                         <div class="mb-3">
                             <label for="alamat">Alamat</label>
@@ -165,6 +166,14 @@ Edit Data Wisata | Admin SIPARTA
             $('#longitude').val(coordinate.lng).keyup()
         })
         // CARA KEDUA
+    </script>
+    <script src="{{ url('siparta/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
+    <script>
+        ClassicEditor.create(document.querySelector("#deskripsi")).then(function (e) {
+            e.ui.view.editable.element.style.height = "200px"
+        }).catch(function (e) {
+            console.error(e)
+        });
     </script>
 @endpush
 

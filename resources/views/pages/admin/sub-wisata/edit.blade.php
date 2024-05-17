@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('title')
-Tambah Data Wisata | Admin SIPARTA
+Edit Data Sub Wisata | Admin SIPARTA
 @endsection
 
 @section('content')
@@ -11,13 +11,13 @@ Tambah Data Wisata | Admin SIPARTA
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Wisata</h4>
+                <h4 class="mb-sm-0 font-size-18">Sub Wisata</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Wisata</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('wisata.index') }}">Data Wisata</a></li>
-                        <li class="breadcrumb-item active">Tambah Data</li>
+                        <li class="breadcrumb-item"><a href="{{ route('sub-wisata.index') }}">Daftar Sub Wisata</a></li>
+                        <li class="breadcrumb-item active">Edit Data Sub Wisata {{ $item->nama }}</li>
                     </ol>
                 </div>
 
@@ -44,7 +44,7 @@ Tambah Data Wisata | Admin SIPARTA
                     <h4 class="card-title mb-0">Peta</h4>
                 </div>
                 <div class="card-body">
-                    <div id="map-wisata" style="height: 460px;"></div>
+                    <div id="map-sub-wisata" style="height: 460px;"></div>
                 </div>
             </div>
         </div>
@@ -52,18 +52,30 @@ Tambah Data Wisata | Admin SIPARTA
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title mb-0">Data Wisata</h4>
+                    <h4 class="card-title mb-0">Data Sub Wisata</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('wisata.store') }}" method="post">
+                    <form action="{{ route('sub-wisata.update', $item->id) }}" method="post">
+                        @method('PUT')
                         @csrf
                         <div class="mb-3">
-                            <label for="nama">Nama Wisata</label>
-                            <input type="text" class="form-control" name="nama" placeholder="Nama Wisata" value="{{ old('nama') }}">
+                            <label for="wisata_id">Wisata</label>
+                            <select name="wisata_id" required class="form-control">
+                                <option value="{{ $item->wisata_id }}">Jangan Diubah</option>
+                                @foreach ($wisata as $wisataa)
+                                    <option value="{{ $wisataa->id }}">
+                                        {{ $wisataa->nama }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nama">Nama Sub Wisata</label>
+                            <input type="text" class="form-control" name="nama" placeholder="Nama Sub Wisata" value="{{ $item->nama }}">
                         </div>
                         <div class="mb-3">
                             <label for="coordinate">Koordinat</label>
-                            <input type="text" class="form-control" name="coordinate" id="coordinate" placeholder="Koordinat" value="{{ old('coordinate') }}">
+                            <input type="text" class="form-control" name="coordinate" id="coordinate" placeholder="Koordinat" value="{{ $item->coordinate }}">
                         </div>
                         {{--  <div class="row">
                             <div class="col-md-6">
@@ -81,18 +93,17 @@ Tambah Data Wisata | Admin SIPARTA
                         </div>  --}}
                         <div class="mb-3">
                             <label for="deskripsi">Deskripsi</label>
-                            <div name="deskripsi" id="deskripsi"></div>
-                            {{--  <textarea name="deskripsi" class="d-block w-100 form-control">{{ old('deskripsi') }}</textarea>  --}}
+                            <textarea name="deskripsi" class="d-block w-100 form-control">{{ $item->deskripsi }}</textarea>
                         </div>
                         <div class="mb-3">
                             <label for="alamat">Alamat</label>
-                            <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="{{ old('alamat') }}">
+                            <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="{{ $item->alamat }}">
                         </div>
                         <div class="mb-3">
                             <label for="link_video">Link Video</label>
-                            <input type="text" class="form-control" name="link_video" placeholder="Link Video" value="{{ old('link_video') }}">
+                            <input type="text" class="form-control" name="link_video" placeholder="Link Video" value="{{ $item->link_video }}">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-sm my-2">Simpan</button>
+                        <button type="submit" class="btn btn-primary btn-sm my-2">Ubah</button>
                     </form>
                 </div>
             </div>
@@ -116,7 +127,7 @@ Tambah Data Wisata | Admin SIPARTA
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         });
 
-        var map = L.map('map-wisata', {
+        var map = L.map('map-sub-wisata', {
             center: [-3.797337353776946, 102.26598621136716],
             zoom: 13,
             layers: [osm]
@@ -165,14 +176,6 @@ Tambah Data Wisata | Admin SIPARTA
             $('#longitude').val(coordinate.lng).keyup()
         })
         // CARA KEDUA
-    </script>
-    <script src="{{ url('siparta/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
-    <script>
-        ClassicEditor.create(document.querySelector("#deskripsi")).then(function (e) {
-            e.ui.view.editable.element.style.height = "200px"
-        }).catch(function (e) {
-            console.error(e)
-        });
     </script>
 @endpush
 

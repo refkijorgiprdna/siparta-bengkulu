@@ -44,10 +44,11 @@
             <div class="col-md-6 col-xl-6">
                 <!-- Simple card -->
                 <div class="card">
-                    <img class="card-img-top img-fluid" style="background-image: url('{{ $item->galeriwisata->count() ? Storage::url( $item->galeriwisata->first()->image ) : '' }}')">
+                    {{--  <img class="card-img-top img-fluid" style="background-image: url('{{ $item->galeriwisata->count() ? Storage::url( $item->galeriwisata->first()->image ) : '' }}')">  --}}
+                    <img class="card-img-top img-fluid" src="{{ url('storage/' . $item->galeriwisata->first()->image) }}" alt="Card image cap">
                     <div class="card-body text-center">
                         <h4 class="card-title">{{ $item->nama }}</h4>
-                        <a href="{{ route('sub-wisata') }}" class="btn btn-primary waves-effect waves-light">Lihat Lebih</a>
+                        <a href="{{ route('user.wisata-show', $item->slug) }}" class="btn btn-primary waves-effect waves-light">Lihat Lebih</a>
                     </div>
                 </div>
             </div>
@@ -59,10 +60,16 @@
 
 @push('addon-style')
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.src.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@2.4.0/Control.FullScreen.min.css">
 @endpush
 
 @push('addon-script')
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.src.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@2.4.0/Control.FullScreen.min.js"></script>
+
 <script>
     var mapOptions = {
       center: [-3.7973233483994835, 102.26600088555267],

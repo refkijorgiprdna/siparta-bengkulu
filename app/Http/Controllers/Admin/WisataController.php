@@ -36,7 +36,7 @@ class WisataController extends Controller
     public function store(WisataRequest $request)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
+        $data['slug'] = Str::slug($request->nama);
 
         Wisata::create($data);
         return redirect()->route('wisata.index');
@@ -68,7 +68,7 @@ class WisataController extends Controller
     public function update(WisataRequest $request, string $id)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
+        $data['slug'] = Str::slug($request->nama);
 
         $item = Wisata::findOrFail($id);
 

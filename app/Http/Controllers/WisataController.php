@@ -15,9 +15,11 @@ class WisataController extends Controller
         ]);
     }
 
-    public function sub_wisata(Request $request)
+    public function wisata_show(string $slug)
     {
-        return view('pages.sub-wisata');
+        $item = Wisata::with('galeriwisata', 'subwisata')->where('slug', $slug)->first();
+
+        return view('pages.wisata-show', compact('item'));
     }
 
     public function sub_sub_wisata(Request $request)

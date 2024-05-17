@@ -43,15 +43,15 @@ Edit Galeri Wisata | Admin SIPARTA
                     <h4 class="card-title mb-0">Data Wisata</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('galeri-wisata.update', $item->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('galeri-sub-wisata.update', $item->id) }}" method="post" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="form-group">
-                            <label for="wisata_id">Wisata</label>
-                            <select name="wisata_id" disabled class="form-control">
-                                @foreach ($wisata as $wisataa)
-                                    <option value="{{ $wisataa->id }}" @if ($wisataa->id == $item->id) selected @endif>
-                                        {{ $wisataa->nama }}
+                            <label for="subwisata_id">Wisata</label>
+                            <select name="subwisata_id" disabled class="form-control">
+                                @foreach ($subwisata as $subwisataa)
+                                    <option value="{{ $subwisataa->id }}" @if ($subwisataa->id == $item->id) selected @endif>
+                                        {{ $subwisataa->nama }}
                                     </option>
                                 @endforeach
                             </select>

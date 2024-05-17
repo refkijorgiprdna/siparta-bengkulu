@@ -7,7 +7,9 @@ use App\Http\Requests\Admin\GaleriWisataRequest;
 use App\Models\GaleriWisata;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\ImageManager;
 
 class GaleriWisataController extends Controller
 {
@@ -26,9 +28,10 @@ class GaleriWisataController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
         $wisata = Wisata::all();
+
         return view('pages.admin.galeri-wisata.create', [
             'wisata' => $wisata
         ]);
@@ -39,13 +42,24 @@ class GaleriWisataController extends Controller
      */
     public function store(GaleriWisataRequest $request)
     {
-        $data = $request->all();
-        $data['image'] = $request->file('image')->store(
-            'assets/galeri-wisata', 'public'
-        );
+        //$data = $request->all();
+        // $data['image'] = $request->file('image')->store(
+        //     'assets/galeri-wisata', 'public'
+        // );
 
-        GaleriWisata::create($data);
-        return redirect()->route('galeri-wisata.index');
+        $extension = $request->file('image')->extension();
+        $imageNames = uniqid('img_', microtime()) . '.' . $extension;
+        Storage::putFileAs('public/assets/galeri-wisata/', $request->file('image'), $imageNames);
+
+        $thumbnailpath = public_path('storage/assets/galeri-wisata/' . $imageNames);
+        $image = ImageManager::imagick()->read($thumbnailpath);
+        $image->resize(600, 500)->save($thumbnailpath);
+
+        GaleriWisata::create([
+            'wisata_id' => $request->wisata_id,
+            'image' => 'assets/galeri-wisata/' . $imageNames
+        ]);
+        return redirect()->route('galeri-wisata.show', $request->wisata_id);
     }
 
     /**
@@ -53,7 +67,11 @@ class GaleriWisataController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $items = GaleriWisata::with(['wisata'])->where('wisata_id', $id)->get();
+
+        return view('pages.admin.galeri-wisata.index', [
+            'items' => $items
+        ]);
     }
 
     /**
@@ -75,16 +93,21 @@ class GaleriWisataController extends Controller
      */
     public function update(GaleriWisataRequest $request, string $id)
     {
-        $data = $request->all();
-        $data['image'] = $request->file('image')->store(
-            'assets/galeri-wisata', 'public'
-        );
+        $extension = $request->file('image')->extension();
+        $imageNames = uniqid('img_', microtime()) . '.' . $extension;
+        Storage::putFileAs('public/assets/galeri-wisata/', $request->file('image'), $imageNames);
+
+        $thumbnailpath = public_path('storage/assets/galeri-wisata/' . $imageNames);
+        $image = ImageManager::imagick()->read($thumbnailpath);
+        $image->resize(600, 500)->save($thumbnailpath);
 
         $item = GaleriWisata::findOrFail($id);
 
-        $item->update($data);
+        $item->update([
+            'image' => 'assets/galeri-wisata/' . $imageNames
+        ]);
 
-        return redirect()->route('galeri-wisata.index');
+        return redirect()->route('galeri-wisata.show', $item->wisata_id);
     }
 
     /**
@@ -93,8 +116,9 @@ class GaleriWisataController extends Controller
     public function destroy(string $id)
     {
         $item = GaleriWisata::findOrFail($id);
+        $wisata_id = $item->wisata_id;
         $item->delete();
 
-        return redirect()->route('galeri-wisata.index');
+        return redirect()->route('galeri-wisata.show', $wisata_id);
     }
 }

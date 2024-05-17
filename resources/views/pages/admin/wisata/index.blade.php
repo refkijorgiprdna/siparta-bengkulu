@@ -28,11 +28,16 @@ Wisata | Admin SIPARTA
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <a href="{{ route('wisata.create') }}" class="btn btn-primary btn-sm float-end">
-                        Tambah Wisata
-                    </a>
+                <div class="card-header d-flex justify-content-between">
                     <h4 class="card-title mb-0">Daftar Wisata di Kota Bengkulu</h4>
+                    <div class="column">
+                        <a href="{{ route('wisata.create') }}" class="btn btn-primary btn-sm">
+                            Tambah Wisata
+                        </a>
+                        <a href="{{ route('galeri-wisata.create') }}" class="btn btn-primary btn-sm">
+                            Tambah Galeri Wisata
+                        </a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -49,9 +54,12 @@ Wisata | Admin SIPARTA
                                 @forelse ($items as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->nama }}</td> 
+                                        <td>{{ $item->nama }}</td>
                                         <td>{{ $item->alamat }}</td>
                                         <td class="text-center">
+                                            <a href="{{ route('galeri-wisata.show', $item->id) }}" class="btn btn-success">
+                                                <i class="fa fa-image"></i>
+                                            </a>
                                             <a href="{{ route('wisata.edit', $item->id) }}" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
