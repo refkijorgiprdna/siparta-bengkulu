@@ -32,26 +32,32 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="true">
                                     <li class="@if(Request::segment(2) == 'wisata' || Request::segment(2) == 'galeri-wisata') mm-active  @endif"><a href="{{ route('wisata.index') }}">Data Wisata</a></li>
-                                    <li>
+                                    <li class="@if(Request::segment(2) == 'sub-wisata' || Request::segment(2) == 'galeri-sub-wisata') mm-active  @endif"><a href="{{ route('sub-wisata.index') }}">Data Sub Wisata</a></li>
+                                    {{--  <li>
                                         <a href="javascript: void(0);" class="has-arrow">Sub Wisata</a>
                                         <ul class="sub-menu" aria-expanded="true">
                                             <li><a href="{{ route('sub-wisata.index') }}">Data Sub Wisata</a></li>
                                             <li><a href="{{ route('galeri-sub-wisata.index') }}">Galeri Sub Wisata</a></li>
                                         </ul>
-                                    </li>
+                                    </li>  --}}
                                 </ul>
                             </li>
-
                             <li>
+                                <a href="{{ route('hotel.index') }}">
+                                    <i class="bx bx-hotel"></i>
+                                    <span>Hotel</span>
+                                </a>
+                            </li>
+
+                            {{--  <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <i class="bx bx-hotel"></i>
                                     <span>Hotel</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ route('hotel.index') }}">Data Hotel</a></li>
-                                    <li><a href="{{ route('galeri-hotel.index') }}">Galeri Hotel</a></li>
                                 </ul>
-                            </li>
+                            </li>  --}}
 
                             <li>
                                 <a href="kuliner_oleh.html">

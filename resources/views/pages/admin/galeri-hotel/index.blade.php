@@ -16,6 +16,7 @@ Galeri Hotel | Admin SIPARTA
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Hotel</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('hotel.index') }}">Data Hotel</a></li>
                         <li class="breadcrumb-item active">Galeri Hotel</li>
                     </ol>
                 </div>
@@ -29,10 +30,7 @@ Galeri Hotel | Admin SIPARTA
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('galeri-hotel.create') }}" class="btn btn-primary btn-sm float-end">
-                        Tambah Galeri Hotel
-                    </a>
-                    <h4 class="card-title mb-0">Daftar Galeri Hotel di Kota Bengkulu</h4>
+                    <h4 class="card-title mb-0">Galeri {{ $items->first()->hotel->nama }}</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -48,16 +46,16 @@ Galeri Hotel | Admin SIPARTA
                             <tbody>
                                 @forelse ($items as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->hotel->nama }}</td>
                                         <td>
-                                            <img src="{{ Storage::url($item->image) }}" alt="" style="width: 150px" class="img-thumbnail" />
+                                            <img src="{{ Storage::url($item->image) }}" alt="" class="img-thumbnail" />
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route('galeri-hotel.edit', $item->id) }}" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
-                                            <form action="{{ route('galeri-wisata.destroy', $item->id) }}" method="POST" class="d-inline">
+                                            <form action="{{ route('galeri-hotel.destroy', $item->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger">

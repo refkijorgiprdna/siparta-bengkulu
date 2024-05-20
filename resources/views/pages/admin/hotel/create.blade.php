@@ -17,7 +17,7 @@ Tambah Data Wisata | Admin SIPARTA
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Hotel</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('hotel.index') }}">Data Hotel</a></li>
-                        <li class="breadcrumb-item active">Tambah Data</li>
+                        <li class="breadcrumb-item active">Tambah Hotel</li>
                     </ol>
                 </div>
 
@@ -85,7 +85,8 @@ Tambah Data Wisata | Admin SIPARTA
                         </div>
                         <div class="mb-3">
                             <label for="deskripsi">Deskripsi</label>
-                            <textarea name="deskripsi" class="d-block w-100 form-control">{{ old('deskripsi') }}</textarea>
+                            <textarea name="deskripsi" id="deskripsi"></textarea>
+                            {{--  <textarea name="deskripsi" class="d-block w-100 form-control">{{ old('deskripsi') }}</textarea>  --}}
                         </div>
                         <div class="mb-3">
                             <label for="alamat">Alamat</label>
@@ -172,6 +173,14 @@ Tambah Data Wisata | Admin SIPARTA
             $('#longitude').val(coordinate.lng).keyup()
         })
         // CARA KEDUA
+    </script>
+    <script src="{{ url('siparta/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js') }}"></script>
+    <script>
+        ClassicEditor.create(document.querySelector("#deskripsi")).then(function (e) {
+            e.ui.view.editable.element.style.height = "200px"
+        }).catch(function (e) {
+            console.error(e)
+        });
     </script>
 @endpush
 

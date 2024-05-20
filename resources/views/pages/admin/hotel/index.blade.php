@@ -28,11 +28,22 @@ Hotel | Admin SIPARTA
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
+                {{--  <div class="card-header">
                     <a href="{{ route('hotel.create') }}" class="btn btn-primary btn-sm float-end">
                         Tambah Hotel
                     </a>
                     <h4 class="card-title mb-0">Daftar Hotel di Kota Bengkulu</h4>
+                </div>  --}}
+                <div class="card-header d-flex justify-content-between">
+                    <h4 class="card-title mb-0">Data Hotel di Kota Bengkulu</h4>
+                    <div class="column">
+                        <a href="{{ route('hotel.create') }}" class="btn btn-primary btn-sm">
+                            Tambah Hotel
+                        </a>
+                        <a href="{{ route('galeri-hotel.create') }}" class="btn btn-primary btn-sm">
+                            Tambah Galeri
+                        </a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -40,8 +51,8 @@ Hotel | Admin SIPARTA
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Hotel</th> 
-                                    <th>Bintang</th>
+                                    <th>Nama Hotel</th>
+                                    <th>Rating</th>
                                     <th>Alamat</th>
                                     <th class="text-center">Action</th>
                                 </tr>
@@ -49,7 +60,7 @@ Hotel | Admin SIPARTA
                             <tbody>
                                 @forelse ($items as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nama }}</td>
                                         <td>
                                             @for ($i = 1; $i <= 5; $i++)
@@ -62,6 +73,9 @@ Hotel | Admin SIPARTA
                                         </td>
                                         <td>{{ $item->alamat }}</td>
                                         <td class="text-center">
+                                            <a href="{{ route('galeri-hotel.show', $item->id) }}" class="btn btn-success">
+                                                <i class="fa fa-image"></i>
+                                            </a>
                                             <a href="{{ route('hotel.edit', $item->id) }}" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>

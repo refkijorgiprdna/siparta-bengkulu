@@ -29,13 +29,13 @@ Wisata | Admin SIPARTA
         <div class="col-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <h4 class="card-title mb-0">Daftar Wisata di Kota Bengkulu</h4>
+                    <h4 class="card-title mb-0">Data Wisata di Kota Bengkulu</h4>
                     <div class="column">
                         <a href="{{ route('wisata.create') }}" class="btn btn-primary btn-sm">
                             Tambah Wisata
                         </a>
                         <a href="{{ route('galeri-wisata.create') }}" class="btn btn-primary btn-sm">
-                            Tambah Galeri Wisata
+                            Tambah Galeri
                         </a>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ Wisata | Admin SIPARTA
                             <tbody>
                                 @forelse ($items as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nama }}</td>
                                         <td>{{ $item->alamat }}</td>
                                         <td class="text-center">

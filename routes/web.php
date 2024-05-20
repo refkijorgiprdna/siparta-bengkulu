@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\GaleriWisataController;
 use App\Http\Controllers\Admin\GaleriSubWisataController;
 use App\Http\Controllers\Admin\HotelController as AdminHotelController;
 use App\Http\Controllers\Admin\WisataController as AdminWisataController;
+use App\Http\Controllers\APIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,11 @@ Route::prefix('admin')
         Route::resource('hotel', (AdminHotelController::class));
         Route::resource('galeri-hotel', (GaleriHotelController::class));
 
+    });
+
+Route::prefix('api')
+    ->group(function() {
+        Route::get('/peta-wisata/{id}', [APIController::class, 'peta_wisata'])->name('api.peta-wisata');
     });
 
 Auth::routes();

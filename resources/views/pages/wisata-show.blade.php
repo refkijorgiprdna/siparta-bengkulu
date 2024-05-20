@@ -31,6 +31,7 @@
             <div class="card">
                 <div class="card-header mb-0">
                     <h4 class="card-title mb-0 font-size-24" style="color: #1368c3">{{ $item->nama }}</h4>
+                    <input type="hidden" name="wisataId" id="wisataId" value="{{ $item->id }}">
                 </div>
                 <div class="card-header">
                     <div class="ratio ratio-21x9">
@@ -58,7 +59,7 @@
                         <div class="col-10">
                             <h5 class="text-center">Deskripsi</h5>
                             {!! $item->deskripsi !!}
-                            <p class="card-text font-size-14 mb-5">Alamat : {{ $item->alamat }}</p>
+                            <p class="card-text font-size-13 mb-5">Alamat : {{ $item->alamat }}</p>
 
                             <div class="text-center">
                                 <p class="card-text font-size-14">
@@ -110,7 +111,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row justify-content-center">
         @forelse ($item->subwisata as $sub_wisata)
         <div class="col-md-6 col-xl-3">
             <!-- Simple card -->
@@ -152,17 +153,75 @@
 <script src="{{ url('siparta/assets/js/pages/lightbox.init.js') }}"></script>
 
 <script>
-    var mapOptions = {
-        center: [-3.8121283301011286, 102.26664999282018],
-        zoom: 14,
-    };
-
-    var map = new L.map("peta-sub-wisata", mapOptions);
-
-    var layer = new L.TileLayer(
-        "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-    );
-
-    map.addLayer(layer);
+    const map = L.map('peta-sub-wisata').setView([-3.785632, 102.297779], 12);
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    var markerGroup = L.layerGroup().addTo(map);
+    var id = $('#wisataId').val();
+    $.ajax({
+        url: "/api/peta-wisata/" + id,
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            $.each(response.wisata, function (key, value) {
+                let data;
+                data = value.coordinate;
+                /* let foto;
+                if (value.foto == null) {
+                    foto = '{{ asset('man.png') }}';
+                } else {
+                    foto = "{{ asset('foto-pribadi') }}" + '/' + value.foto;
+                }*/
+                const splitted = data.split(",");
+                L.marker([splitted[0], splitted[1]]).addTo(markerGroup)
+                    /*.bindPopup("<center><img src='" + foto + "' width='60' /><br><br>" + value
+                        .nama_lengkap +
+                        "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
+                        "<a href=/kartu-keluarga/anggota/" + value.id +
+                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Keluarga</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
+                        [splitted[0], splitted[1]] +
+                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
+                    );*/
+                    .bindPopup("<center><br>" + value
+                        .nama +
+                        "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
+                        "<a href=/wisata/" + value.slug +
+                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Wisata</span></a> <a target='_blank' href='https://www.google.com/maps?saddr=My+Location&daddr=" +
+                        [splitted[0], splitted[1]] +
+                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
+                    );
+            });
+            $.each(response.subWisata, function (key, value) {
+                let data;
+                data = value.coordinate;
+                /* let foto;
+                if (value.foto == null) {
+                    foto = '{{ asset('man.png') }}';
+                } else {
+                    foto = "{{ asset('foto-pribadi') }}" + '/' + value.foto;
+                }*/
+                const splitted = data.split(",");
+                L.marker([splitted[0], splitted[1]]).addTo(markerGroup)
+                    /*.bindPopup("<center><img src='" + foto + "' width='60' /><br><br>" + value
+                        .nama_lengkap +
+                        "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
+                        "<a href=/kartu-keluarga/anggota/" + value.id +
+                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Keluarga</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
+                        [splitted[0], splitted[1]] +
+                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
+                    );*/
+                    .bindPopup("<center><br>" + value
+                        .nama +
+                        "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
+                        "<a href=/" + value.slug +
+                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Wisata</span></a> <a target='_blank' href='https://www.google.com/maps?saddr=My+Location&daddr=" +
+                        [splitted[0], splitted[1]] +
+                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
+                    );
+            });
+        }
+    });
 </script>
 @endpush

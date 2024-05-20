@@ -22,7 +22,7 @@ class GaleriHotelRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'hotel_id' => 'required|integer|exists:hotels,id',
+            'hotel_id' => 'nullable|integer|exists:hotels,id',
             'image' => 'required|image'
         ];
     }

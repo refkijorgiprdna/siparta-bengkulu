@@ -16,6 +16,7 @@ Galeri Sub Wisata | Admin SIPARTA
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Wisata</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('sub-wisata.index') }}">Data Sub Wisata</a></li>
                         <li class="breadcrumb-item active">Galeri Sub Wisata</li>
                     </ol>
                 </div>
@@ -29,10 +30,7 @@ Galeri Sub Wisata | Admin SIPARTA
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('galeri-sub-wisata.create') }}" class="btn btn-primary btn-sm float-end">
-                        Tambah Galeri Wisata
-                    </a>
-                    <h4 class="card-title mb-0">Galeri Sub Wisata di Kota Bengkulu</h4>
+                    <h4 class="card-title mb-0">Galeri Sub Wisata {{ $items->first()->subwisata->nama }}</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -48,7 +46,7 @@ Galeri Sub Wisata | Admin SIPARTA
                             <tbody>
                                 @forelse ($items as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->subwisata->nama }}</td>
                                         <td>
                                             <img src="{{ Storage::url($item->image) }}" alt="" class="img-thumbnail" />

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
 <div class="container">
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
+                            {{--  <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -48,7 +48,7 @@
                                         {{ __('Remember Me') }}
                                     </label>
                                 </div>
-                            </div>
+                            </div>  --}}
                         </div>
 
                         <div class="row mb-0">

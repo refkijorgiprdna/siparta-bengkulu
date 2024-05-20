@@ -54,7 +54,7 @@ class GaleriSubWisataController extends Controller
             'image' => 'assets/galeri-sub-wisata/' . $imageNames
         ]);
 
-        return redirect()->route('galeri-sub-wisata.index');
+        return redirect()->route('galeri-sub-wisata.show', $request->subwisata_id);
     }
 
     /**
@@ -62,7 +62,11 @@ class GaleriSubWisataController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $items = GaleriSubWisata::with(['subwisata'])->where('subwisata_id', $id)->get();
+
+        return view('pages.admin.galeri-sub-wisata.index', [
+            'items' => $items
+        ]);
     }
 
     /**
@@ -98,7 +102,7 @@ class GaleriSubWisataController extends Controller
             'image' => 'assets/galeri-sub-wisata/' . $imageNames
         ]);
 
-        return redirect()->route('galeri-sub-wisata.index');
+        return redirect()->route('galeri-sub-wisata.show', $item->subwisata_id);
     }
 
     /**
@@ -109,6 +113,6 @@ class GaleriSubWisataController extends Controller
         $item = GaleriSubWisata::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('galeri-sub-wisata.index');
+        return redirect()->route('galeri-sub-wisata.show', $item->subwisata_id);
     }
 }

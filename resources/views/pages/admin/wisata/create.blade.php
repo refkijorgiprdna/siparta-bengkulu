@@ -81,7 +81,7 @@ Tambah Data Wisata | Admin SIPARTA
                         </div>  --}}
                         <div class="mb-3">
                             <label for="deskripsi">Deskripsi</label>
-                            <div name="deskripsi" id="deskripsi"></div>
+                            <textarea name="deskripsi" id="deskripsi"></textarea>
                             {{--  <textarea name="deskripsi" class="d-block w-100 form-control">{{ old('deskripsi') }}</textarea>  --}}
                         </div>
                         <div class="mb-3">

@@ -16,7 +16,7 @@ Sub Wisata | Admin SIPARTA
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Wisata</a></li>
-                        <li class="breadcrumb-item active">Daftar Sub Wisata</li>
+                        <li class="breadcrumb-item active">Data Sub Wisata</li>
                     </ol>
                 </div>
 
@@ -28,11 +28,16 @@ Sub Wisata | Admin SIPARTA
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <a href="{{ route('sub-wisata.create') }}" class="btn btn-primary btn-sm float-end">
-                        Tambah Wisata
-                    </a>
-                    <h4 class="card-title mb-0">Daftar Sub Wisata di Kota Bengkulu</h4>
+                <div class="card-header d-flex justify-content-between">
+                    <h4 class="card-title mb-0">Data Sub Wisata di Kota Bengkulu</h4>
+                    <div class="column">
+                        <a href="{{ route('sub-wisata.create') }}" class="btn btn-primary btn-sm">
+                            Tambah Wisata
+                        </a>
+                        <a href="{{ route('galeri-sub-wisata.create') }}" class="btn btn-primary btn-sm">
+                            Tambah Galeri
+                        </a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -49,11 +54,14 @@ Sub Wisata | Admin SIPARTA
                             <tbody>
                                 @forelse ($items as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nama }}</td>
                                         <td>{{ $item->wisata->nama }}</td>
                                         <td>{{ $item->alamat }}</td>
                                         <td class="text-center">
+                                            <a href="{{ route('galeri-sub-wisata.show', $item->id) }}" class="btn btn-success">
+                                                <i class="fa fa-image"></i>
+                                            </a>
                                             <a href="{{ route('sub-wisata.edit', $item->id) }}" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>

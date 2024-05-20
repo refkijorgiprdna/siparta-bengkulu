@@ -16,8 +16,8 @@ Tambah Galeri Wisata | Admin SIPARTA
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Wisata</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('galeri-wisata.index') }}">Galeri Wisata</a></li>
-                        <li class="breadcrumb-item active">Tambah Gambar</li>
+                        <li class="breadcrumb-item"><a href="{{ route('wisata.index') }}">Data Wisata</a></li>
+                        <li class="breadcrumb-item active">Tambah Galeri</li>
                     </ol>
                 </div>
 

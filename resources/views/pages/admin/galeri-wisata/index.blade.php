@@ -16,6 +16,7 @@ Galeri Wisata | Admin SIPARTA
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Wisata</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('wisata.index') }}">Data Wisata</a></li>
                         <li class="breadcrumb-item active">Galeri Wisata</li>
                     </ol>
                 </div>
@@ -29,10 +30,7 @@ Galeri Wisata | Admin SIPARTA
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    {{--  <a href="{{ route('galeri-wisata.create') }}" class="btn btn-primary btn-sm float-end">
-                        Tambah Galeri Wisata
-                    </a>  --}}
-                    <h4 class="card-title mb-0">Daftar Galeri Wisata {{ $items->first()->wisata->nama }}</h4>
+                    <h4 class="card-title mb-0">Galeri Wisata {{ $items->first()->wisata->nama }}</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
