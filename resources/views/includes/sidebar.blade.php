@@ -25,22 +25,22 @@
 
                             <li class="menu-title" data-key="t-apps">Apps</li>
 
-                            <li>
+                            <li class="@if(Request::segment(1) == 'wisata') mm-active  @endif">
                                 <a href="{{ route('wisata') }}">
                                     <i class="bx bx-photo-album"></i>
                                     <span>Wisata</span>
                                 </a>
                             </li>
 
-                            <li>
+                            <li class="@if(Request::segment(1) == 'hotel') mm-active  @endif">
                                 <a href="{{ route('hotel') }}">
                                     <i class="bx bx-hotel"></i>
                                     <span>Hotel</span>
                                 </a>
                             </li>
 
-                            <li>
-                                <a href="#">
+                            <li class="@if(Request::segment(1) == 'kuliner-dan-oleh-oleh') mm-active  @endif">
+                                <a href="{{ route('kuliner') }}">
                                     <i class="bx bx-food-menu"></i>
                                     <span>Kuliner dan Oleh-Oleh</span>
                                 </a>

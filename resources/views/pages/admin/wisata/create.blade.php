@@ -173,6 +173,6 @@ Tambah Data Wisata | Admin SIPARTA
         }).catch(function (e) {
             console.error(e)
         });
-    </script>
+    </script> 
 @endpush
 

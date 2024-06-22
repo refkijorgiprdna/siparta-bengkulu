@@ -36,7 +36,7 @@ class HotelController extends Controller
     public function store(HotelRequest $request)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
+        $data['slug'] = Str::slug($request->nama);
 
         Hotel::create($data);
         return redirect()->route('hotel.index');
@@ -68,7 +68,7 @@ class HotelController extends Controller
     public function update(HotelRequest $request, string $id)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
+        $data['slug'] = Str::slug($request->nama);
 
         $item = Hotel::findOrFail($id);
 

@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Wisata</h4>
+                <h4 class="mb-sm-0 font-size-18"></h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
@@ -30,6 +30,7 @@
             <div class="card">
                 <div class="card-header mb-0">
                     <h4 class="card-title mb-0 font-size-22" style="color: #1368c3;">WISATA DI KOTA BENGKULU</h4>
+                    {{--  <input type="hidden" name="wisataId" id="wisataId" value="{{ $items->id }}">  --}}
                 </div>
                 <div class="card-body">
                     <div id="peta-wisata" style="height: 400px;"></div>
@@ -47,8 +48,11 @@
                     {{--  <img class="card-img-top img-fluid" style="background-image: url('{{ $item->galeriwisata->count() ? Storage::url( $item->galeriwisata->first()->image ) : '' }}')">  --}}
                     <img class="card-img-top img-fluid" src="{{ url('storage/' . $item->galeriwisata->first()->image) }}" alt="Card image cap">
                     <div class="card-body text-center">
-                        <h4 class="card-title">{{ $item->nama }}</h4>
-                        <a href="{{ route('user.wisata-show', $item->slug) }}" class="btn btn-primary waves-effect waves-light">Lihat Lebih</a>
+                        <h4 class="card-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $item->nama }}</h4>
+                        <div class="" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis;">
+                            {!! $item->deskripsi !!}
+                        </div>
+                        <a href="{{ route('user.wisata-show', $item->slug) }}" class="btn btn-primary mt-2 waves-effect waves-light">Lihat Lebih</a>
                     </div>
                 </div>
             </div>
@@ -90,6 +94,7 @@
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
     var markerGroup = L.layerGroup().addTo(map);
+    var id = $('#wisataId').val();
     $.ajax({
         url: "/api/peta-wisata",
         type: 'GET',
@@ -105,7 +110,6 @@
                     foto = "{{ asset('foto-pribadi') }}" + '/' + value.foto;
                 }*/
                 const splitted = data.split(",");
-                markerCoordinates.push([splitted[0], splitted[1]]);
                 L.marker([splitted[0], splitted[1]]).addTo(markerGroup)
                     /*.bindPopup("<center><img src='" + foto + "' width='60' /><br><br>" + value
                         .nama_lengkap +
@@ -119,39 +123,12 @@
                         .nama +
                         "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
                         "<a href=/wisata/" + value.slug +
-                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Lihat Wisata</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
+                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Wisata</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
                         [splitted[0], splitted[1]] +
                         "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
                     );
             });
-            $.each(response.subWisata, function (key, value) {
-                let data;
-                data = value.coordinate;
-                /* let foto;
-                if (value.foto == null) {
-                    foto = '{{ asset('man.png') }}';
-                } else {
-                    foto = "{{ asset('foto-pribadi') }}" + '/' + value.foto;
-                }*/
-                const splitted = data.split(",");
-                L.marker([splitted[0], splitted[1]]).addTo(markerGroup)
-                    /*.bindPopup("<center><img src='" + foto + "' width='60' /><br><br>" + value
-                        .nama_lengkap +
-                        "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
-                        "<a href=/kartu-keluarga/anggota/" + value.id +
-                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Keluarga</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
-                        [splitted[0], splitted[1]] +
-                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
-                    );*/
-                    .bindPopup("<center><br>" + value
-                        .nama +
-                        "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
-                        "<a href=#" + value.coordinate +
-                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Keluarga</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
-                        [splitted[0], splitted[1]] +
-                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
-                    );
-            });
+
         }
     });
   </script>

@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Hotel;
+use App\Models\Wisata;
+use App\Models\Kuliner;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
     public function index(Request $request) {
-        return view('pages.admin.dashboard');
+        $wisataCount = Wisata::count();
+        $hotelCount = Hotel::count();
+        $kulinerCount = Kuliner::count();
+
+        return view('pages.admin.dashboard', compact('wisataCount', 'hotelCount', 'kulinerCount'));
     }
 }

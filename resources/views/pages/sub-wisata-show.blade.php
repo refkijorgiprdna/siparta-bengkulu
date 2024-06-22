@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Pasir Putih | SIPARTA
+    {{ $item->nama }} | SIPARTA
 @endsection
 
 @section('content')
@@ -17,8 +17,7 @@
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item">Apps</li>
                         <li class="breadcrumb-item"><a href="{{ route('wisata') }}">Wisata</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('sub-wisata') }}">Pantai Panjang</a></li>
-                        <li class="breadcrumb-item active">Pasir Putih</li>
+                        <li class="breadcrumb-item active">{{ $item->nama }}</li>
                     </ol>
                 </div>
 
@@ -31,37 +30,27 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header mb-0">
-                    <h4 class="card-title mb-0 font-size-24" style="color: #1368c3">PASIR PUTIH</h4>
+                    <h4 class="card-title mb-0 font-size-24" style="color: #1368c3">{{ $item->nama }}</h4>
+                    <input type="hidden" name="wisataId" id="wisataId" value="{{ $item->wisata_id }}">
                 </div>
                 <div class="card-header">
                     <div class="ratio ratio-21x9">
-                        <iframe src="https://www.youtube.com/embed/bkVke1yTNjk" title="YouTube video" allowfullscreen></iframe>
+                        <iframe src="{{ $item->link_video }}" title="YouTube video" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="card-header">
                     <div class="row justify-content-center">
+                        @forelse ($item->galerisubwisata as $key => $galeri)
                         <div class="col-lg-3 col-sm-6">
                             <div class="mt-3">
-                                <a href="{{ url('siparta/assets/images/wisata/Pasir Putih.png') }}" class="image-popup">
-                                    <img src="{{ url('siparta/assets/images/wisata/Pasir Putih.png') }}" class="img-fluid" alt="work-thumbnail">
+                                <a href="{{ asset('storage/' . $galeri->image) }}" class="image-popup">
+                                    <img src="{{ asset('storage/' . $galeri->image) }}" class="img-fluid" alt="work-thumbnail">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="mt-3">
-                                <a href="{{ url('siparta/assets/images/wisata/Pasir Putih_1.jpg') }}" class="image-popup">
-                                    <img src="{{ url('siparta/assets/images/wisata/Pasir Putih_1.jpg') }}" class="img-fluid" alt="work-thumbnail">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="mt-3">
-                                <a href="{{ url('siparta/assets/images/wisata/Pasir Putih_2.jpg') }}" class="image-popup">
-                                    <img src="{{ url('siparta/assets/images/wisata/Pasir Putih_2.jpg') }}" class="img-fluid" alt="work-thumbnail">
-                                </a>
-                            </div>
-                        </div>
+                        @empty
 
+                        @endforelse
                     </div>
                 </div>
                 <div class="card-body">
@@ -69,25 +58,13 @@
                         <div class="col-1"></div>
                         <div class="col-10">
                             <h5 class="text-center">Deskripsi</h5>
-                            <p class="card-text font-size-14 mb-0" style="text-indent: 45px;" align="justify">
-                                Objek wisata pantai di kota Bengkulu menjadi tempat wisata yang paling banyak dikunjungi oleh masyarakat, baik masyarakat kota Bengkulu sendiri maupun masyarakat yang di luar kota Bengkulu.
-                                Kota Bengkulu saat ini banyak memiliki objek wisata yang sudah dikenal luas oleh masyarakat. Salah satunya seperti pantai pasir putih.
-                                Pantai Pasir Putih ini sangat bagus dan indah bagi pengunjung yang ingin melakukan foto-foto.
-                                Selain pantai dengan pasir putihnya yang indah, pohon-pohon cemara juga menjadi daya tarik bagi para pengunjung untuk datang berwisata ke pantai pasir putih.
-                            </p>
-                            <p class="card-text font-size-14" style="text-indent: 45px;" align="justify">
-                                Selain menawarkan area pantai berpasir, Pasir Putih juga terdapat berbagai sarana dan ornamen unik. Pada tahun 2019, pantai ini telah direnovasi dan menjadi semakin menarik.
-                                Taman pantainya merupakan daya tarik utama bagi kamu yang berkunjung ke sini. Beralih dari bibir pantai, terdapat objek yang menarik di sekitar lahan parkir yaitu teras kayu setinggi beberapa meter dari tanah.
-                                Teras ini dilindungi railing atau pagar dari besi. Lantainya terbuat dari papan kayu yang tersusun menyerupai koridor.
-                                Sejak kemunculannya, teras ini menjadi spot favorit pengunjung. Dari sini, pengunjung bisa mendapat pemandangan laut lepas tanpa penghalang.
-                                Terasnya nyaman untuk duduk-duduk menikmati sunset. Keberadaan teras ini memang mendukung kegiatan menikmati sunset.
-                            </p>
+                            {!! $item->deskripsi !!}
 
-                            <p class="card-text font-size-14 mb-5">Alamat : Jl. Pariwisata, Kel. Lempuing, Kec. Ratu Agung, Kota Bengkulu</p>
+                            <p class="card-text font-size-13 mb-5">Alamat : {{ $item->alamat }}</p>
 
                             <div class="text-center">
                                 <p class="card-text font-size-14">
-                                    Ingin berkunjung wisata Pasir Putih, anda dapat menggunakan transportasi yang disediakan oleh partner kami, Maxim
+                                    Ingin berkunjung wisata {{ $item->nama }}, anda dapat menggunakan transportasi yang disediakan oleh partner kami, Maxim
                                     <br>
                                     <a class="btn btn-warning waves-effect mt-2 waves-light" href="https://id.taximaxim.com/id/5900-bengkulu/order-a-taxi-online" target="_blank">
                                         <i class="bx bx-taxi me-2"></i>Maxim
@@ -100,18 +77,23 @@
                 </div>
                 <div class="card-footer">
                     <nav aria-label="Page navigation">
-                        <p class="text-end mb-0">Menuju Pantai Berkas</p>
+                        @if (getMaxIdSubWisata($item->wisata_id) != $item->id)
+                        <p class="text-end mb-0">Menuju {{ namaNextSubWisata($item->slug) }}</p>
+                        @endif
                         <ul class="pagination justify-content-between">
                           <li class="page-item">
-                            <a class="page-link btn btn-success waves-effect mt-2 waves-light" href="{{ route('sub-wisata') }}" aria-label="Previous">
+                            @if (getMinIdSubWisata($item->wisata_id) != $item->id)
+                            <a class="page-link btn btn-success waves-effect mt-2 waves-light" href="{{ route('user.sub-wisata-show', backSubWisata($item->slug)) }}" aria-label="Previous">
                                 <i data-feather="arrow-left-circle" class="me-2"></i>Kembali
                             </a>
+                            @endif
                           </li>
                           <li class="page-item">
-                            <a class="page-link btn btn-primary waves-effect mt-2 waves-light" href="{{ route('sub-sub-wisata') }}" aria-label="Next">
+                            @if (getMaxIdSubWisata($item->wisata_id) != $item->id)
+                            <a class="page-link btn btn-primary waves-effect mt-2 waves-light" href="{{ route('user.sub-wisata-show', nextSubWisata($item->slug)) }}" aria-label="Next">
                                 Berikutnya <i data-feather="arrow-right-circle" class="ms-2"></i>
-
                             </a>
+                            @endif
                           </li>
                         </ul>
                     </nav>
@@ -125,17 +107,17 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header mb-0">
-                    <h4 class="card-title mb-0 font-size-18" style="color: #000000">Tempat Menarik Lainnya di Pantai Panjang</h4>
+                    <h4 class="card-title mb-0 font-size-18" style="color: #000000">Tempat Menarik Lainnya di {{ $item->wisata->nama }}</h4>
                 </div>
                 <div class="card-body">
-                    <div id="peta-sub-sub-wisata" style="height: 400px;"></div>
+                    <div id="peta-sub-wisata" style="height: 400px;"></div>
                     <p><p>* Pin dapat diklik untuk melihat detail wisata</p></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- <div class="row justify-content-center">
+    {{--  <!-- <div class="row justify-content-center">
         <div class="col-md-6 col-xl-3">
 
             <div class="card">
@@ -195,7 +177,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div> -->  --}}
 
 </div> <!-- container-fluid -->
 @endsection
@@ -218,7 +200,7 @@
 <!-- lightbox init -->
 <script src="{{ url('siparta/assets/js/pages/lightbox.init.js') }}"></script>
 
-<script>
+{{--  <script>
     var mapOptions = {
         center: [-3.8121283301011286, 102.26664999282018],
         zoom: 14,
@@ -231,5 +213,78 @@
     );
 
     map.addLayer(layer);
+</script>  --}}
+
+<script>
+    const map = L.map('peta-sub-wisata').setView([{{ $item->coordinate }}], 13);
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    var markerGroup = L.layerGroup().addTo(map);
+    var id = $('#wisataId').val();
+    $.ajax({
+        url: "/api/peta-wisata/item/" + id,
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            /*$.each(response.wisata, function (key, value) {
+                let data;
+                data = value.coordinate;
+                /* let foto;
+                if (value.foto == null) {
+                    foto = '{{ asset('man.png') }}';
+                } else {
+                    foto = "{{ asset('foto-pribadi') }}" + '/' + value.foto;
+                }*/
+                /*const splitted = data.split(",");
+                L.marker([splitted[0], splitted[1]]).addTo(markerGroup)
+                    /*.bindPopup("<center><img src='" + foto + "' width='60' /><br><br>" + value
+                        .nama_lengkap +
+                        "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
+                        "<a href=/kartu-keluarga/anggota/" + value.id +
+                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Keluarga</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
+                        [splitted[0], splitted[1]] +
+                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
+                    );*/
+                    /*.bindPopup("<center><br>" + value
+                        .nama +
+                        "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
+                        "<a href=/wisata/" + value.slug +
+                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Wisata</span></a> <a target='_blank' href='https://www.google.com/maps?saddr=My+Location&daddr=" +
+                        [splitted[0], splitted[1]] +
+                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
+                    );
+            });*/
+            $.each(response.subWisata, function (key, value) {
+                let data;
+                data = value.coordinate;
+                /* let foto;
+                if (value.foto == null) {
+                    foto = '{{ asset('man.png') }}';
+                } else {
+                    foto = "{{ asset('foto-pribadi') }}" + '/' + value.foto;
+                }*/
+                const splitted = data.split(",");
+                L.marker([splitted[0], splitted[1]]).addTo(markerGroup)
+                    /*.bindPopup("<center><img src='" + foto + "' width='60' /><br><br>" + value
+                        .nama_lengkap +
+                        "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
+                        "<a href=/kartu-keluarga/anggota/" + value.id +
+                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Keluarga</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
+                        [splitted[0], splitted[1]] +
+                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
+                    );*/
+                    .bindPopup("<center><br>" + value
+                        .nama +
+                        "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
+                        "<a href=/wisata/sub-wisata/" + value.slug +
+                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Wisata</span></a> <a target='_blank' href='https://www.google.com/maps?saddr=My+Location&daddr=" +
+                        [splitted[0], splitted[1]] +
+                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
+                    );
+            });
+        }
+    });
 </script>
 @endpush

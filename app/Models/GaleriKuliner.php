@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Hotel extends Model
+class GaleriKuliner extends Model
 {
     use SoftDeletes;
 
     protected $fillable = [
-        'nama', 'slug', 'coordinate', 'deskripsi', 'alamat', 
+        'kuliner_id', 'image'
     ];
 
     protected $hidden = [
 
     ];
 
-    public function galerihotel(){
-        return $this->hasMany(GaleriHotel::class, 'hotel_id', 'id');
+    public function kuliner(){
+        return $this->belongsTo(Kuliner::class, 'kuliner_id', 'id');
     }
 }

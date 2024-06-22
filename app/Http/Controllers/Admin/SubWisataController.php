@@ -40,7 +40,7 @@ class SubWisataController extends Controller
     public function store(SubWisataRequest $request)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
+        $data['slug'] = Str::slug($request->nama);
 
         SubWisata::create($data);
         return redirect()->route('sub-wisata.index');
@@ -74,7 +74,7 @@ class SubWisataController extends Controller
     public function update(SubWisataRequest $request, string $id)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
+        $data['slug'] = Str::slug($request->nama);
 
         $item = SubWisata::findOrFail($id);
 

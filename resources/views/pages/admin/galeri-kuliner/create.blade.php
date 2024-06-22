@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('title')
-Tambah Galeri Hotel | Admin SIPARTA
+Tambah Galeri Kuliner dan Oleh-Oleh | Admin SIPARTA
 @endsection
 
 @section('content')
@@ -11,12 +11,12 @@ Tambah Galeri Hotel | Admin SIPARTA
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Hotel</h4>
+                <h4 class="mb-sm-0 font-size-18">Kuliner dan Oleh-Oleh</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Hotel</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('hotel.index') }}">Data Hotel</a></li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Kuliner dan Oleh-Oleh</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('kuliner.index') }}">Data Kuliner dan Oleh-Oleh</a></li>
                         <li class="breadcrumb-item active">Tambah Galeri</li>
                     </ol>
                 </div>
@@ -40,18 +40,18 @@ Tambah Galeri Hotel | Admin SIPARTA
     <div class="row">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title mb-0">Data Hotel</h4>
+                <h4 class="card-title mb-0">Data Kuliner dan Oleh-Oleh</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('galeri-hotel.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('galeri-kuliner.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="hotel_id">Kuliner dan Oleh-Oleh</label>
-                        <select name="hotel_id" required class="form-control">
-                            <option value="">Pilih Hotel</option>
-                            @foreach ($hotel as $hotell)
-                                <option value="{{ $hotell->id }}">
-                                    {{ $hotell->nama }}
+                        <label for="kuliner_id">Kuliner dan Oleh-Oleh</label>
+                        <select name="kuliner_id" required class="form-control">
+                            <option value="">Pilih Kuliner dan Oleh-Oleh</option>
+                            @foreach ($kuliner as $kulinerr)
+                                <option value="{{ $kulinerr->id }}">
+                                    {{ $kulinerr->nama }}
                                 </option>
                             @endforeach
                         </select>

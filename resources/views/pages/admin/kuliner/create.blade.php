@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('title')
-Tambah Data Hotel | Admin SIPARTA
+Tambah Data Kuliner dan Oleh-Oleh | Admin SIPARTA
 @endsection
 
 @section('content')
@@ -11,13 +11,13 @@ Tambah Data Hotel | Admin SIPARTA
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Hotel</h4>
+                <h4 class="mb-sm-0 font-size-18">Kuliner dan Oleh-Oleh</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Hotel</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('hotel.index') }}">Data Hotel</a></li>
-                        <li class="breadcrumb-item active">Tambah Hotel</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Kuliner dan Oleh-Oleh</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('kuliner.index') }}">Data Kuliner dan Oleh-Oleh</a></li>
+                        <li class="breadcrumb-item active">Tambah Kuliner dan Oleh-Oleh</li>
                     </ol>
                 </div>
 
@@ -44,7 +44,7 @@ Tambah Data Hotel | Admin SIPARTA
                     <h4 class="card-title mb-0">Peta</h4>
                 </div>
                 <div class="card-body">
-                    <div id="map-hotel" style="height: 620px;"></div>
+                    <div id="map-kuliner" style="height: 620px;"></div>
                 </div>
             </div>
         </div>
@@ -55,11 +55,11 @@ Tambah Data Hotel | Admin SIPARTA
                     <h4 class="card-title mb-0">Data Hotel</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('hotel.store') }}" method="post">
+                    <form action="{{ route('kuliner.store') }}" method="post">
                         @csrf
                         <div class="mb-3">
-                            <label for="nama">Nama Hotel</label>
-                            <input type="text" class="form-control" name="nama" placeholder="Nama Hotel" value="{{ old('nama') }}">
+                            <label for="nama">Nama Kuliner dan Oleh-Oleh</label>
+                            <input type="text" class="form-control" name="nama" placeholder="Nama Kuliner dan Oleh-Oleh" value="{{ old('nama') }}">
                         </div>
                         <div class="mb-3">
                             <label for="coordinate">Koordinat</label>
@@ -80,10 +80,6 @@ Tambah Data Hotel | Admin SIPARTA
                             </div>
                         </div>  --}}
                         <div class="mb-3">
-                            <label for="bintang">Bintang</label>
-                            <input type="number" class="form-control" name="bintang" placeholder="Bintang" value="{{ old('bintang') }}">
-                        </div>
-                        <div class="mb-3">
                             <label for="deskripsi">Deskripsi</label>
                             <textarea name="deskripsi" id="deskripsi"></textarea>
                             {{--  <textarea name="deskripsi" class="d-block w-100 form-control">{{ old('deskripsi') }}</textarea>  --}}
@@ -91,14 +87,6 @@ Tambah Data Hotel | Admin SIPARTA
                         <div class="mb-3">
                             <label for="alamat">Alamat</label>
                             <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="{{ old('alamat') }}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="link_reservasi">Link Reservasi</label>
-                            <input type="text" class="form-control" name="link_reservasi" placeholder="Link Reservasi" value="{{ old('link_reservasi') }}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="link_video">Link Video</label>
-                            <input type="text" class="form-control" name="link_video" placeholder="Link Video" value="{{ old('link_video') }}">
                         </div>
                         <button type="submit" class="btn btn-primary btn-sm my-2">Simpan</button>
                     </form>
@@ -124,7 +112,7 @@ Tambah Data Hotel | Admin SIPARTA
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         });
 
-        var map = L.map('map-hotel', {
+        var map = L.map('map-kuliner', {
             center: [-3.797337353776946, 102.26598621136716],
             zoom: 13,
             layers: [osm]

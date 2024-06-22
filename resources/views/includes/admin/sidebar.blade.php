@@ -42,8 +42,8 @@
                                     </li>  --}}
                                 </ul>
                             </li>
-                            <li>
-                                <a href="{{ route('hotel.index') }}">
+                            <li class="@if(Request::segment(2) == 'hotel' || Request::segment(2) == 'galeri-hotel') mm-active  @endif">
+                                <a href="{{ route('hotel.index') }}" >
                                     <i class="bx bx-hotel"></i>
                                     <span>Hotel</span>
                                 </a>
@@ -59,8 +59,8 @@
                                 </ul>
                             </li>  --}}
 
-                            <li>
-                                <a href="kuliner_oleh.html">
+                            <li class="@if(Request::segment(2) == 'kuliner' || Request::segment(2) == 'galeri-kuliner') mm-active  @endif">
+                                <a href="{{ route('kuliner.index') }}">
                                     <i class="bx bx-food-menu"></i>
                                     <span>Kuliner dan Oleh-Oleh</span>
                                 </a>

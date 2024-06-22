@@ -118,13 +118,13 @@ Edit Data Wisata | Admin SIPARTA
         });
 
         var map = L.map('map-wisata', {
-            center: [-3.797337353776946, 102.26598621136716],
+            center: [{{ $item->coordinate }}],
             zoom: 13,
             layers: [osm]
         })
 
 
-        var marker = L.marker([-3.797337353776946, 102.26598621136716], {
+        var marker = L.marker([{{ $item->coordinate }}], {
             draggable: true
         }).addTo(map);
 
@@ -174,6 +174,6 @@ Edit Data Wisata | Admin SIPARTA
         }).catch(function (e) {
             console.error(e)
         });
-    </script>
+    </script> 
 @endpush
 

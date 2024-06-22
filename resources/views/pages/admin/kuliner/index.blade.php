@@ -1,7 +1,7 @@
 @extends('layouts.admin.app')
 
 @section('title')
-Wisata | Admin SIPARTA
+Kuliner dan Oleh-Oleh | Admin SIPARTA
 @endsection
 
 @section('content')
@@ -11,12 +11,12 @@ Wisata | Admin SIPARTA
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Wisata</h4>
+                <h4 class="mb-sm-0 font-size-18">Kuliner dan Oleh-Oleh</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Wisata</a></li>
-                        <li class="breadcrumb-item active">Data Wisata</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Kuliner dan Oleh-Oleh</a></li>
+                        <li class="breadcrumb-item active">Data Kuliner dan Oleh-Oleh</li>
                     </ol>
                 </div>
 
@@ -28,13 +28,19 @@ Wisata | Admin SIPARTA
     <div class="row">
         <div class="col-12">
             <div class="card">
+                {{--  <div class="card-header">
+                    <a href="{{ route('hotel.create') }}" class="btn btn-primary btn-sm float-end">
+                        Tambah Hotel
+                    </a>
+                    <h4 class="card-title mb-0">Daftar Hotel di Kota Bengkulu</h4>
+                </div>  --}}
                 <div class="card-header d-flex justify-content-between">
-                    <h4 class="card-title mb-0">Data Wisata di Kota Bengkulu</h4>
+                    <h4 class="card-title mb-0">Data Kuliner dan Oleh-Oleh di Kota Bengkulu</h4>
                     <div class="column">
-                        <a href="{{ route('wisata.create') }}" class="btn btn-primary btn-sm">
-                            Tambah Wisata
+                        <a href="{{ route('kuliner.create') }}" class="btn btn-primary btn-sm">
+                            Tambah Kuliner dan Oleh-Oleh
                         </a>
-                        <a href="{{ route('galeri-wisata.create') }}" class="btn btn-primary btn-sm">
+                        <a href="{{ route('galeri-kuliner.create') }}" class="btn btn-primary btn-sm">
                             Tambah Galeri
                         </a>
                     </div>
@@ -45,7 +51,7 @@ Wisata | Admin SIPARTA
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Wisata</th>
+                                    <th>Nama Kuliner dan Oleh-Oleh</th>
                                     <th>Alamat</th>
                                     <th class="text-center">Action</th>
                                 </tr>
@@ -57,13 +63,13 @@ Wisata | Admin SIPARTA
                                         <td>{{ $item->nama }}</td>
                                         <td>{{ $item->alamat }}</td>
                                         <td class="text-center">
-                                            <a href="{{ route('galeri-wisata.show', $item->id) }}" class="btn btn-success">
+                                            <a href="{{ route('galeri-kuliner.show', $item->id) }}" class="btn btn-success">
                                                 <i class="fa fa-image"></i>
                                             </a>
-                                            <a href="{{ route('wisata.edit', $item->id) }}" class="btn btn-info">
+                                            <a href="{{ route('kuliner.edit', $item->id) }}" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
-                                            <form action="{{ route('wisata.destroy', $item->id) }}" method="POST" class="d-inline">
+                                            <form action="{{ route('kuliner.destroy', $item->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger delete-btn">

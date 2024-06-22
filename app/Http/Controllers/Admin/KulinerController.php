@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\WisataRequest;
-use App\Models\Wisata;
+use App\Http\Requests\Admin\KulinerRequest;
+use App\Models\Kuliner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class WisataController extends Controller
+class KulinerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $items = Wisata::all();
+        $items = Kuliner::all();
 
-        return view('pages.admin.wisata.index', [
+        return view('pages.admin.kuliner.index', [
             'items' => $items
         ]);
     }
@@ -27,20 +27,19 @@ class WisataController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.wisata.create');
+        return view('pages.admin.kuliner.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(WisataRequest $request)
+    public function store(KulinerRequest $request)
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->nama);
 
-        Wisata::create($data);
-
-        return redirect()->route('wisata.index');
+        Kuliner::create($data);
+        return redirect()->route('kuliner.index');
     }
 
     /**
@@ -56,9 +55,9 @@ class WisataController extends Controller
      */
     public function edit(string $id)
     {
-        $item = Wisata::findOrFail($id);
+        $item = Kuliner::findOrFail($id);
 
-        return view('pages.admin.wisata.edit', [
+        return view('pages.admin.kuliner.edit', [
             'item' => $item
         ]);
     }
@@ -66,16 +65,16 @@ class WisataController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(WisataRequest $request, string $id)
+    public function update(KulinerRequest $request, string $id)
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->nama);
 
-        $item = Wisata::findOrFail($id);
+        $item = Kuliner::findOrFail($id);
 
         $item->update($data);
 
-        return redirect()->route('wisata.index');
+        return redirect()->route('kuliner.index');
     }
 
     /**
@@ -83,9 +82,9 @@ class WisataController extends Controller
      */
     public function destroy(string $id)
     {
-        $item = Wisata::findOrFail($id);
+        $item = Kuliner::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('wisata.index');
+        return redirect()->route('kuliner.index');
     }
 }

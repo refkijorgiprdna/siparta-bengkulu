@@ -82,7 +82,7 @@ Hotel | Admin SIPARTA
                                             <form action="{{ route('hotel.destroy', $item->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('delete')
-                                                <button class="btn btn-danger">
+                                                <button class="btn btn-danger delete-btn">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                             </form>
@@ -107,3 +107,27 @@ Hotel | Admin SIPARTA
 
 @endsection
 
+@push('addon-script')
+<script>
+    $(document).ready(function () {
+        $('.delete-btn').on('click', function (e) {
+            e.preventDefault();
+            var form = $(this).closest('form');
+
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data ini akan dihapus secara permanen!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+</script>
+@endpush
