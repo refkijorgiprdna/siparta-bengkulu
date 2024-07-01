@@ -208,7 +208,7 @@ Dashboard | SIPARTA
         type: 'GET',
         dataType: 'json',
         success: function (response) {
-            addMarkers(response.wisata, greenIcon, wisataGroup, "wisata");
+            addMarkers(response.wisata, blueIcon, wisataGroup, "wisata");
         }
     });
 
@@ -217,7 +217,7 @@ Dashboard | SIPARTA
         type: 'GET',
         dataType: 'json',
         success: function (response) {
-            addMarkers(response.subwisata, greenIcon, wisataGroup, "wisata/sub-wisata");
+            addMarkers(response.subwisata, blueIcon, wisataGroup, "wisata/sub-wisata");
         }
     });
 
@@ -237,7 +237,7 @@ Dashboard | SIPARTA
         type: 'GET',
         dataType: 'json',
         success: function (response) {
-            addMarkers(response.kuliner, blueIcon, kulinerGroup, "kuliner-dan-oleh-oleh");
+            addMarkers(response.kuliner, greenIcon, kulinerGroup, "kuliner-dan-oleh-oleh");
         }
     });
 

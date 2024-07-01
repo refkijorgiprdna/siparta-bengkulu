@@ -107,7 +107,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header mb-0">
-                    <h4 class="card-title mb-0 font-size-18" style="color: #000000">Tempat Menarik Lainnya di {{ $item->wisata->nama }}</h4>
+                    <h4 class="card-title mb-0 font-size-18" style="color: #000000">Hotel dan Kuliner di Sekitar {{ $item->wisata->nama }}</h4>
                 </div>
                 <div class="card-body">
                     <div id="peta-sub-wisata" style="height: 400px;"></div>
@@ -188,11 +188,18 @@
 
 <!-- leaflet css -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.src.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@2.4.0/Control.FullScreen.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.74.0/dist/L.Control.Locate.min.css" />
 @endpush
 
 @push('addon-script')
 <!-- leaflet js -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.src.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@2.4.0/Control.FullScreen.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.74.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 
 <!-- glightbox js -->
 <script src="{{ url('siparta/assets/libs/glightbox/js/glightbox.min.js') }}"></script>
@@ -200,23 +207,8 @@
 <!-- lightbox init -->
 <script src="{{ url('siparta/assets/js/pages/lightbox.init.js') }}"></script>
 
-{{--  <script>
-    var mapOptions = {
-        center: [-3.8121283301011286, 102.26664999282018],
-        zoom: 14,
-    };
-
-    var map = new L.map("peta-sub-sub-wisata", mapOptions);
-
-    var layer = new L.TileLayer(
-        "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-    );
-
-    map.addLayer(layer);
-</script>  --}}
-
 <script>
-    const map = L.map('peta-sub-wisata').setView([{{ $item->coordinate }}], 13);
+    const map = L.map('peta-sub-wisata').setView([{{ $item->coordinate }}], 15);
     const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -286,5 +278,76 @@
             });
         }
     });
+
+    // Layer groups untuk wisata, hotel, dan kuliner
+    var hotelGroup = L.layerGroup().addTo(map);
+    var kulinerGroup = L.layerGroup().addTo(map);
+
+    var greenIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+    var redIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+    var blueIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+
+      // Fungsi untuk menambahkan marker ke layer group yang sesuai
+    function addMarkers(data, icon, group, urlPrefix) {
+        $.each(data, function (key, value) {
+            const coordinates = value.coordinate.split(",");
+            L.marker([coordinates[0], coordinates[1]], { icon: icon })
+                .addTo(group)
+                .bindPopup("<center><br>" + value.nama + "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
+                    "<a href=/" + urlPrefix + "/" + value.slug + "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail</span></a> " +
+                    "<a target='_blank' href='https://www.google.com/maps?saddr=My+Location&daddr=" + [coordinates[0], coordinates[1]] + "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>");
+        });
+    }
+
+    // Memuat data hotel
+    $.ajax({
+        url: "/api/peta-hotel",
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            addMarkers(response.hotel, redIcon, hotelGroup, "hotel");
+        }
+    });
+
+    // Memuat data kuliner
+    $.ajax({
+        url: "/api/peta-kuliner",
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            addMarkers(response.kuliner, greenIcon, kulinerGroup, "kuliner-dan-oleh-oleh");
+        }
+    });
+
+    // Kontrol layer
+    var overlayMaps = {
+        "Hotel": hotelGroup,
+        "Kuliner": kulinerGroup
+    };
+
+    L.control.layers(null, overlayMaps).addTo(map);
+
+    L.control.locate().addTo(map);
 </script>
 @endpush
