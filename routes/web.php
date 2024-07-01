@@ -7,11 +7,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\KulinerController;
+use App\Http\Controllers\Admin\KalenderController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SubWisataController;
 use App\Http\Controllers\Admin\GaleriHotelController;
-use App\Http\Controllers\Admin\GaleriKulinerController;
 use App\Http\Controllers\Admin\GaleriWisataController;
+use App\Http\Controllers\Admin\GaleriKulinerController;
 use App\Http\Controllers\Admin\GaleriSubWisataController;
 use App\Http\Controllers\Admin\HotelController as AdminHotelController;
 use App\Http\Controllers\Admin\WisataController as AdminWisataController;
@@ -46,6 +47,8 @@ Route::prefix('admin')
     ->group(function() {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
+        //Route::get('kalender', [KalenderController::class, 'index'])->name('kalender');
+
         Route::resource('wisata', (AdminWisataController::class));
         Route::resource('galeri-wisata', (GaleriWisataController::class));
         Route::resource('sub-wisata', (SubWisataController::class));
@@ -56,6 +59,9 @@ Route::prefix('admin')
 
         Route::resource('kuliner', (AdminKulinerController::class));
         Route::resource('galeri-kuliner', (GaleriKulinerController::class));
+
+
+
 
     });
 

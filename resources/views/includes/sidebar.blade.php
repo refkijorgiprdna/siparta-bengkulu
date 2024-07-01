@@ -17,6 +17,13 @@
                             </li>
 
                             {{--  <li>
+                                <a href="#">
+                                    <i data-feather="calendar"></i>
+                                    <span>Kalender</span>
+                                </a>
+                            </li>  --}}
+
+                            {{--  <li>
                                 <a href="kalender.html">
                                     <i class="bx bx-calendar-event"></i>
                                     <span>Kalender</span>

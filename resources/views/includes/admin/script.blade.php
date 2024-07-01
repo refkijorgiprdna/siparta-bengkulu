@@ -5,6 +5,7 @@
 <script src="{{ url('siparta/assets/libs/simplebar/simplebar.min.js') }}"></script>
 <script src="{{ url('siparta/assets/libs/node-waves/waves.min.js') }}"></script>
 <script src="{{ url('siparta/assets/libs/feather-icons/feather.min.js') }}"></script>
+
 <!-- pace js -->
 <script src="{{ url('siparta/assets/libs/pace-js/pace.min.js') }}"></script>
 

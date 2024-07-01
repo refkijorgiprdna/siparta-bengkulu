@@ -29,7 +29,7 @@ Dashboard | SIPARTA
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header mb-0">
-                    <h4 class="card-title mb-0 font-size-22 text-center" style="color: #1368c3;">JELAJAHI KOTA BENGKULU</h4>
+                    <h4 class="card-title mb-0 font-size-22 text-center" style="color: #1368c3;">MARI JELAJAHI KOTA BENGKULU</h4>
                 </div>
                 <div class="card-body">
                     <div id="peta-wisata" style="height: 400px;"></div>
