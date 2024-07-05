@@ -165,26 +165,26 @@ Dashboard | SIPARTA
     var hotelGroup = L.layerGroup().addTo(map);
     var kulinerGroup = L.layerGroup().addTo(map);
 
-    var greenIcon = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+    var restaurantIcon = new L.Icon({
+        iconUrl: '{{ asset('siparta/assets/images/pin/shopping.png') }}',
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
+        iconSize: [33, 41],
         iconAnchor: [12, 41],
         popupAnchor: [1, -34],
         shadowSize: [41, 41]
       });
-    var redIcon = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+    var hotelIcon = new L.Icon({
+        iconUrl: '{{ asset('siparta/assets/images/pin/hotel.png') }}',
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
+        iconSize: [33, 41],
         iconAnchor: [12, 41],
         popupAnchor: [1, -34],
         shadowSize: [41, 41]
       });
-    var blueIcon = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+    var beachIcon = new L.Icon({
+        iconUrl: '{{ asset('siparta/assets/images/pin/beach.png') }}',
         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
+        iconSize: [33, 41],
         iconAnchor: [12, 41],
         popupAnchor: [1, -34],
         shadowSize: [41, 41]
@@ -208,7 +208,7 @@ Dashboard | SIPARTA
         type: 'GET',
         dataType: 'json',
         success: function (response) {
-            addMarkers(response.wisata, blueIcon, wisataGroup, "wisata");
+            addMarkers(response.wisata, beachIcon, wisataGroup, "wisata");
         }
     });
 
@@ -217,7 +217,7 @@ Dashboard | SIPARTA
         type: 'GET',
         dataType: 'json',
         success: function (response) {
-            addMarkers(response.subwisata, blueIcon, wisataGroup, "wisata/sub-wisata");
+            addMarkers(response.subwisata, beachIcon, wisataGroup, "wisata/sub-wisata");
         }
     });
 
@@ -227,7 +227,7 @@ Dashboard | SIPARTA
         type: 'GET',
         dataType: 'json',
         success: function (response) {
-            addMarkers(response.hotel, redIcon, hotelGroup, "hotel");
+            addMarkers(response.hotel, hotelIcon, hotelGroup, "hotel");
         }
     });
 
@@ -237,7 +237,7 @@ Dashboard | SIPARTA
         type: 'GET',
         dataType: 'json',
         success: function (response) {
-            addMarkers(response.kuliner, greenIcon, kulinerGroup, "kuliner-dan-oleh-oleh");
+            addMarkers(response.kuliner, restaurantIcon, kulinerGroup, "kuliner-dan-oleh-oleh");
         }
     });
 
@@ -251,6 +251,24 @@ Dashboard | SIPARTA
     L.control.layers(null, overlayMaps).addTo(map);
 
     L.control.locate().addTo(map);
+
+    // Menambahkan kontrol legenda
+    var legend = L.control({ position: 'bottomleft'});
+
+    legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend');
+        div.style.background = 'white';
+        div.style.padding = '10px';
+        div.style.borderRadius = '10px'; // Membuat sudut melengkung
+        div.style.border = '1px solid #ccc'; // Menambahkan outline
+        div.innerHTML += '<strong>Kategori:</strong><br>';
+        div.innerHTML += '<img src="{{ asset('siparta/assets/images/pin/beach.png') }}" style="vertical-align:middle; width:25px; height:auto; margin-right:5px;"> Wisata<br>';
+        div.innerHTML += '<img src="{{ asset('siparta/assets/images/pin/hotel.png') }}" style="vertical-align:middle; width:25px; height:auto; margin-right:5px;"> Hotel<br>';
+        div.innerHTML += '<img src="{{ asset('siparta/assets/images/pin/shopping.png') }}" style="vertical-align:middle; width:25px; height:auto; margin-right:5px;"> Kuliner dan Oleh-Oleh<br>';
+        return div;
+    };
+
+    legend.addTo(map);
 
 
   </script>

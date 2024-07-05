@@ -213,60 +213,43 @@
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+
+
+    // Layer groups untuk wisata, hotel, dan kuliner
+    var hotelGroup = L.layerGroup().addTo(map);
+    var kulinerGroup = L.layerGroup().addTo(map);
+
+
+    var restaurantIcon = new L.Icon({
+        iconUrl: '{{ asset('siparta/assets/images/pin/shopping.png') }}',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [33, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+    var hotelIcon = new L.Icon({
+        iconUrl: '{{ asset('siparta/assets/images/pin/hotel.png') }}',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [33, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+
     var markerGroup = L.layerGroup().addTo(map);
+
     var id = $('#wisataId').val();
     $.ajax({
         url: "/api/peta-wisata/item/" + id,
         type: 'GET',
         dataType: 'json',
         success: function (response) {
-            /*$.each(response.wisata, function (key, value) {
-                let data;
-                data = value.coordinate;
-                /* let foto;
-                if (value.foto == null) {
-                    foto = '{{ asset('man.png') }}';
-                } else {
-                    foto = "{{ asset('foto-pribadi') }}" + '/' + value.foto;
-                }*/
-                /*const splitted = data.split(",");
-                L.marker([splitted[0], splitted[1]]).addTo(markerGroup)
-                    /*.bindPopup("<center><img src='" + foto + "' width='60' /><br><br>" + value
-                        .nama_lengkap +
-                        "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
-                        "<a href=/kartu-keluarga/anggota/" + value.id +
-                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Keluarga</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
-                        [splitted[0], splitted[1]] +
-                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
-                    );*/
-                    /*.bindPopup("<center><br>" + value
-                        .nama +
-                        "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
-                        "<a href=/wisata/" + value.slug +
-                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Wisata</span></a> <a target='_blank' href='https://www.google.com/maps?saddr=My+Location&daddr=" +
-                        [splitted[0], splitted[1]] +
-                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
-                    );
-            });*/
             $.each(response.subWisata, function (key, value) {
                 let data;
                 data = value.coordinate;
-                /* let foto;
-                if (value.foto == null) {
-                    foto = '{{ asset('man.png') }}';
-                } else {
-                    foto = "{{ asset('foto-pribadi') }}" + '/' + value.foto;
-                }*/
                 const splitted = data.split(",");
                 L.marker([splitted[0], splitted[1]]).addTo(markerGroup)
-                    /*.bindPopup("<center><img src='" + foto + "' width='60' /><br><br>" + value
-                        .nama_lengkap +
-                        "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
-                        "<a href=/kartu-keluarga/anggota/" + value.id +
-                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Keluarga</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
-                        [splitted[0], splitted[1]] +
-                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
-                    );*/
                     .bindPopup("<center><br>" + value
                         .nama +
                         "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
@@ -278,35 +261,6 @@
             });
         }
     });
-
-    // Layer groups untuk wisata, hotel, dan kuliner
-    var hotelGroup = L.layerGroup().addTo(map);
-    var kulinerGroup = L.layerGroup().addTo(map);
-
-    var greenIcon = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
-    var redIcon = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
-    var blueIcon = new L.Icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
 
       // Fungsi untuk menambahkan marker ke layer group yang sesuai
     function addMarkers(data, icon, group, urlPrefix) {
@@ -326,7 +280,7 @@
         type: 'GET',
         dataType: 'json',
         success: function (response) {
-            addMarkers(response.hotel, redIcon, hotelGroup, "hotel");
+            addMarkers(response.hotel, hotelIcon, hotelGroup, "hotel");
         }
     });
 
@@ -336,7 +290,7 @@
         type: 'GET',
         dataType: 'json',
         success: function (response) {
-            addMarkers(response.kuliner, greenIcon, kulinerGroup, "kuliner-dan-oleh-oleh");
+            addMarkers(response.kuliner, restaurantIcon, kulinerGroup, "kuliner-dan-oleh-oleh");
         }
     });
 
@@ -349,5 +303,22 @@
     L.control.layers(null, overlayMaps).addTo(map);
 
     L.control.locate().addTo(map);
+
+    // Menambahkan kontrol legenda
+    var legend = L.control({ position: 'bottomleft'});
+
+    legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend');
+        div.style.background = 'white';
+        div.style.padding = '10px';
+        div.style.borderRadius = '10px'; // Membuat sudut melengkung
+        div.style.border = '1px solid #ccc'; // Menambahkan outline
+        div.innerHTML += '<strong>Kategori:</strong><br>';
+        div.innerHTML += '<img src="{{ asset('siparta/assets/images/pin/hotel.png') }}" style="vertical-align:middle; width:25px; height:auto; margin-right:5px;"> Hotel<br>';
+        div.innerHTML += '<img src="{{ asset('siparta/assets/images/pin/shopping.png') }}" style="vertical-align:middle; width:25px; height:auto; margin-right:5px;"> Kuliner dan Oleh-Oleh<br>';
+        return div;
+    };
+
+    legend.addTo(map);
 </script>
 @endpush
