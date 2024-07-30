@@ -11,7 +11,7 @@ Dashboard | Admin SIPARTA
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Selamat Datang di Sistem Informasi Pariwisata Kota Bengkulu</h4>
+                <h4 class="mb-sm-0 font-size-18">Dashboard</h4>
 
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
@@ -28,7 +28,7 @@ Dashboard | Admin SIPARTA
 
 
     <div class="row">
-        <div class="col-xl-4 col-md-6">
+        <div class="col-xl-3 col-md-6">
             <!-- card -->
             <div class="card card-h-100">
                 <!-- card body -->
@@ -37,19 +37,40 @@ Dashboard | Admin SIPARTA
                         <div class="flex-grow-1">
                             <span class="text-muted mb-3 lh-1 d-block text-truncate">WISATA</span>
                             <h4 class="mb-3">
-                                <span class="counter-value">{{ $wisataCount }}</span>
+                                <span>{{ $wisataCount }}</span>
                             </h4>
                         </div>
 
                         <div class="flex-shrink-0 text-end">
-                           <i class="bx bx-photo-album" style="font-size: 35px;"></i>
+                           <i class="bx bx-photo-album" style="font-size: 35px; color:red"></i>
                         </div>
                     </div>
                 </div><!-- end card body -->
             </div><!-- end card -->
         </div><!-- end col -->
 
-        <div class="col-xl-4 col-md-6">
+        <div class="col-xl-3 col-md-6">
+            <!-- card -->
+            <div class="card card-h-100">
+                <!-- card body -->
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <span class="text-muted mb-3 lh-1 d-block text-truncate">SUB WISATA</span>
+                            <h4 class="mb-3">
+                                <span>{{ $subwisataCount }}</span>
+                            </h4>
+                        </div>
+
+                        <div class="flex-shrink-0 text-end">
+                           <i class="bx bx-photo-album" style="font-size: 35px; color:orange"></i>
+                        </div>
+                    </div>
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+
+        <div class="col-xl-3 col-md-6">
             <!-- card -->
             <div class="card card-h-100">
                 <!-- card body -->
@@ -58,18 +79,18 @@ Dashboard | Admin SIPARTA
                         <div class="flex-grow-1">
                             <span class="text-muted mb-3 lh-1 d-block text-truncate">HOTEL</span>
                             <h4 class="mb-3">
-                                <span class="counter-value">{{ $hotelCount }}</span>
+                                <span>{{ $hotelCount }}</span>
                             </h4>
                         </div>
                         <div class="flex-shrink-0 text-end">
-                            <i class="bx bx-hotel" style="font-size: 35px;"></i>
+                            <i class="bx bx-hotel" style="font-size: 35px; color:green"></i>
                         </div>
                     </div>
                 </div><!-- end card body -->
             </div><!-- end card -->
         </div><!-- end col-->
 
-        <div class="col-xl-4 col-md-6">
+        <div class="col-xl-3 col-md-6">
             <!-- card -->
             <div class="card card-h-100">
                 <!-- card body -->
@@ -78,11 +99,11 @@ Dashboard | Admin SIPARTA
                         <div class="flex-grow-1">
                             <span class="text-muted mb-3 lh-1 d-block text-truncate">KULINER DAN OLEH-OLEH</span>
                             <h4 class="mb-3">
-                                <span class="counter-value">{{ $kulinerCount }}</span>
+                                <span>{{ $kulinerCount }}</span>
                             </h4>
                         </div>
                         <div class="flex-shrink-0 text-end">
-                            <i class="bx bx-food-menu" style="font-size: 35px;"></i>
+                            <i class="bx bx-food-menu" style="font-size: 35px; color:#1C84EE"></i>
                         </div>
                     </div>
                 </div><!-- end card body -->

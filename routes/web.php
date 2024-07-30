@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\KulinerController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\KalenderController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SubWisataController;
@@ -46,6 +47,8 @@ Route::prefix('admin')
     ->middleware(['auth', 'admin'])
     ->group(function() {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+        //Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
         //Route::get('kalender', [KalenderController::class, 'index'])->name('kalender');
 
