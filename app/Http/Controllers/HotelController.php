@@ -7,10 +7,18 @@ use Illuminate\Http\Request;
 
 class HotelController extends Controller
 {
-    public function index(Request $request)
+    // public function index(Request $request)
+    // {
+    //     $items = Hotel::with(['galerihotel'])->get();
+    //     return view('pages.hotel',  compact('items'));
+    // }
+
+    public function index()
     {
-        $items = Hotel::with(['galerihotel'])->get();
-        return view('pages.hotel',  compact('items'));
+        // Mengambil data hotel dan mengurutkannya berdasarkan bintang tertinggi
+        $items = Hotel::with('galerihotel')->orderBy('bintang', 'desc')->get();
+
+        return view('pages.hotel', compact('items'));
     }
 
     public function hotel_show(string $slug)
