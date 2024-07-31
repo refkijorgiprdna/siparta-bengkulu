@@ -14,21 +14,7 @@
                                     <i class="bx bx-home-alt"></i>
                                     <span>Dashboard</span>
                                 </a>
-                            </li>
-
-                            {{--  <li>
-                                <a href="{{ route('kalender') }}">
-                                    <i data-feather="calendar"></i>
-                                    <span>Kalender</span>
-                                </a>
-                            </li>  --}}
-
-                            {{--  <li>
-                                <a href="kalender.html">
-                                    <i class="bx bx-calendar-event"></i>
-                                    <span>Kalender</span>
-                                </a>
-                            </li>  --}}
+                            </li> 
 
                             <li class="menu-title">Apps</li>
 
