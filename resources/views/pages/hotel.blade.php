@@ -39,6 +39,61 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="mb-3">
+                                    <label class="control-label">Cari Hotel</label>
+                                    <div class="input-group mb-3">
+                                        <form action="{{ route('hotel') }}" method="get">
+                                            <input id="cari_hotel" name="nama_hotel" type="text" class="form-control" value="{{ request()->nama_hotel }}">
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light input-group-text">Search</button>
+                                        </form>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="mb-3">
+                                    <label class="control-label">Kategori</label>
+                                    <select class="form-control select2" id="kategoriSelect" onchange="redirectToHotel(this.value)">
+                                        <option value="">-- Pilih Bintang --</option>
+                                        <option value="1" @if (request()->bintang == 1)
+                                            selected
+                                        @endif>Bintang 1</option>
+                                        <option value="2" @if (request()->bintang == 2)
+                                            selected
+                                        @endif>Bintang 2</option>
+                                        <option value="3" @if (request()->bintang == 3)
+                                            selected
+                                        @endif>Bintang 3</option>
+                                        <option value="4" @if (request()->bintang == 4)
+                                            selected
+                                        @endif>Bintang 4</option>
+                                        <option value="5" @if (request()->bintang == 5)
+                                            selected
+                                        @endif>Bintang 5</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2">
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end row -->
+
     <div class="row justify-content-center">
         @foreach ($items as $item)
         <div class="col-md-6 col-xl-3">
@@ -70,12 +125,27 @@
 </div> <!-- container-fluid -->
 @endsection
 
+@push('before-style')
+<link href="{{ asset('siparta/assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+@endpush
+
 @push('addon-style')
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 @endpush
 
 @push('addon-script')
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="{{ asset('siparta/assets/libs/select2/js/select2.min.js') }}"></script>
+<script>
+    $(".select2").select2();
+</script>
+<script>
+    function redirectToHotel(value) {
+        if (value) {
+            window.location.href = "/hotel?bintang=" + value;
+        }
+    }
+</script>
 {{--  <script>
     var mapOptions = {
       center: [-3.7973233483994835, 102.26600088555267],

@@ -13,10 +13,20 @@ class HotelController extends Controller
     //     return view('pages.hotel',  compact('items'));
     // }
 
-    public function index()
+    public function index(Request $request)
     {
-        // Mengambil data hotel dan mengurutkannya berdasarkan bintang tertinggi
-        $items = Hotel::with('galerihotel')->orderBy('bintang', 'desc')->get();
+        if ($request->nama_hotel) {
+            $search = $request->nama_hotel;
+            $items = Hotel::with('galerihotel')->when($search, function ($query) use ($search) {
+                return $query->where('nama', 'like', "%{$search}%");
+            })->orderBy('bintang', 'desc')->get();
+        } elseif ($request->bintang) {
+            $search = $request->bintang;
+            $items = Hotel::with('galerihotel')->where('bintang', $search)->get();
+        } else {
+            // Mengambil data hotel dan mengurutkannya berdasarkan bintang tertinggi
+            $items = Hotel::with('galerihotel')->orderBy('bintang', 'desc')->get();
+        }
 
         return view('pages.hotel', compact('items'));
     }

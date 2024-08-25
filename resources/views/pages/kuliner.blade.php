@@ -39,6 +39,37 @@
         </div>
     </div>
 
+    <div class="row justify-content-end">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="mb-3">
+                                    <label class="control-label">Cari Tempat Kuliner dan Oleh-Oleh</label>
+                                    <div class="input-group mb-3">
+                                        <form action="{{ route('kuliner') }}" method="get">
+                                            <input id="cari_kuliner" name="nama_kuliner" type="text" class="form-control" value="{{ request()->nama_kuliner }}">
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light input-group-text">Search</button>
+                                        </form>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2">
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end row -->
+
     <div class="row justify-content-center">
         @foreach ($items as $item)
         <div class="col-md-6 col-xl-3">

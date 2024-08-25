@@ -10,3 +10,4 @@
 <link href="{{ url('siparta/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
 <!-- App Css-->
 <link href="{{ url('siparta/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+

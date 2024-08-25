@@ -9,8 +9,16 @@ class KulinerController extends Controller
 {
     public function index(Request $request)
     {
-        $items = Kuliner::with(['galerikuliner'])->get();
-        return view('pages.kuliner',  compact('items'));
+        if ($request->nama_kuliner) {
+            $search = $request->nama_kuliner;
+            $items = Kuliner::with(['galerikuliner'])->when($search, function ($query) use ($search) {
+                return $query->where('nama', 'like', "%{$search}%");
+            })->get();
+        } else {
+            $items = Kuliner::with(['galerikuliner'])->get();
+        }
+
+        return view('pages.kuliner', compact('items'));
     }
 
     public function kuliner_show(string $slug)

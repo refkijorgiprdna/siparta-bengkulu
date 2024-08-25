@@ -11,6 +11,8 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ url('siparta/assets/images/Kota Bengkulu.png') }}">
 
+        @stack('before-style')
+
         @include('includes.style')
 
         @stack('addon-style')
