@@ -18,13 +18,13 @@ class KulinerController extends Controller
             $items = Kuliner::with(['galerikuliner'])->get();
         }
 
-        return view('pages.kuliner', compact('items'));
+        return view('pages.frontend.kuliner', compact('items'));
     }
 
     public function kuliner_show(string $slug)
     {
         $item = Kuliner::with('galerikuliner')->where('slug', $slug)->first();
 
-        return view('pages.kuliner-show', compact('item'));
+        return view('pages.frontend.kuliner-show', compact('item'));
     }
 }

@@ -26,6 +26,19 @@ function backWisata($slug)
     }
 }
 
+function namabackWisata($slug)
+{
+    $data = Wisata::where('slug', $slug)->first();
+    $id = $data->id;
+    $item = Wisata::where('id', $id-1)->first();
+
+    if ($item) {
+        return $item->nama;
+    } else {
+        return $slug;
+    }
+}
+
 function nextWisata($slug)
 {
     $data = Wisata::where('slug', $slug)->first();

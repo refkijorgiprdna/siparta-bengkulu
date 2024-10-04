@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\KulinerController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\KalenderController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -42,6 +43,7 @@ Route::get('/hotel/{slug}', [HotelController::class, 'hotel_show'])->name('user.
 Route::get('/kuliner-dan-oleh-oleh', [KulinerController::class, 'index'])->name('kuliner');
 Route::get('/kuliner-dan-oleh-oleh/{slug}', [KulinerController::class, 'kuliner_show'])->name('user.kuliner-show');
 
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Route::prefix('admin')
     ->middleware(['auth', 'admin'])

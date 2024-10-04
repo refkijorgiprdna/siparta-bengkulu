@@ -11,20 +11,20 @@ class WisataController extends Controller
     public function index(Request $request)
     {
         $items = Wisata::with(['galeriwisata'])->get();
-        return view('pages.wisata', compact('items'));
+        return view('pages.frontend.wisata', compact('items'));
     }
 
     public function wisata_show(string $slug)
     {
         $item = Wisata::with('galeriwisata', 'subwisata')->where('slug', $slug)->first();
 
-        return view('pages.wisata-show', compact('item'));
+        return view('pages.frontend.wisata-show', compact('item'));
     }
 
     public function sub_wisata_show(String $slug)
     {
         $item = SubWisata::with('galerisubwisata')->where('slug', $slug)->first();
 
-        return view('pages.sub-wisata-show', compact('item'));
+        return view('pages.frontend.sub-wisata-show', compact('item'));
     }
 }
