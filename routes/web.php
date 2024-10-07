@@ -4,11 +4,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\APIController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\KulinerController;
-use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\KalenderController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SubWisataController;
@@ -84,3 +86,7 @@ Route::prefix('api')
     });
 
 Auth::routes();
+
+// Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+// Route::post('login', [LoginController::class, 'login']);
+// Route::post('register', [RegisterController::class, 'register'])->name('register');

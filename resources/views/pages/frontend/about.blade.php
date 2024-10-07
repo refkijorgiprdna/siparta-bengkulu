@@ -8,10 +8,10 @@
     <!--==============================
     About Area
     ==============================-->
-    <div class="about-area position-relative overflow-hidden overflow-hidden space" id="about-sec">
+    <div class="about-area position-relative overflow-hidden overflow-hidden space" id="about-sec" data-bg-src="{{ url('frontend/assets/img/batik-besurek.png') }}">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-7">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
                     <div class="img-box3">
                         <div class="img1">
                             <img src="{{ url('frontend/assets/img/normal/about_3_1.jpg') }}" alt="About">
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-5">
+                <div class="col-xl-4">
                     <div class="ps-xl-4">
                         <div class="title-area mb-20">
                             <span class="sub-title style1 ">Welcome To</span>

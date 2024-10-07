@@ -1883,7 +1883,7 @@ textarea.is-invalid {
   display: block;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-} 
+}
 
 .th-btn:before {
   content: '';
@@ -3050,7 +3050,7 @@ hr.title-line {
 [data-bg-src] {
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
+  /* background-position: center center; */
 }
 
 .bg-fluid {

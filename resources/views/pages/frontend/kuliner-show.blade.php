@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <section class="mt-5">
+    <section class="space-extra" data-bg-src="{{ url('frontend/assets/img/batik-besurek.png') }}">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xxl-9 col-lg-7">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <div class="location-map mb-30">
-                            <h3 class="page-title mt-45 mb-30 text-center">Hotel di Kota Bengkulu</h3>
+                            <h3 class="page-title mt-45 mb-30 text-center">Kuliner dan Oleh-Oleh di Kota Bengkulu</h3>
                             <div class="contact-map" id="peta-kuliner" style="height: 400px;"></div>
                         </div>
                     </div>

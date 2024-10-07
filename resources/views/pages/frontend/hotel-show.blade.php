@@ -19,7 +19,7 @@
                             <i class="mdi mdi-star-outline text-warning"></i>
                         @endif
                     @endfor
-                </h1> 
+                </h1>
                 <ul class="breadcumb-menu">
                     <li><a href="{{ route('home') }}">Beranda</a></li>
                     <li><a href="{{ route('hotel') }}">Hotel</a></li>
@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <section class="mt-5">
+    <section class="space-extra" data-bg-src="{{ url('frontend/assets/img/batik-besurek.png') }}">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xxl-9 col-lg-7">

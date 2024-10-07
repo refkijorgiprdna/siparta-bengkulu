@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <section class="mt-5">
+    <section class="space-extra" data-bg-src="{{ url('frontend/assets/img/batik-besurek.png') }}">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xxl-9 col-lg-7">
@@ -89,61 +89,54 @@
                             </div>
                         @endif
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--==============================
-    Sub Wisata
-    ==============================-->
-    <section class="mt-5">
-        <div class="container">
-            <div class="slider-area tour-slider ">
-                <div class="swiper th-slider has-shadow"
-                    data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"2"},"1200":{"slidesPerView":"3"},"1300":{"slidesPerView":"4"}}}'>
-                    <div class="swiper-wrapper justify-content-center">
-                        @forelse ($item->subwisata as $sub_wisata)
-                        <div class="swiper-slide">
-                            <div class="tour-box th-ani gsap-cursor">
-                                <div class="tour-box_img global-img">
-                                    <img src="{{ asset('storage/' . $sub_wisata->galerisubwisata->first()->image) }}" alt="image">
-                                </div>
-                                <div class="tour-content">
-                                    <h3 class="box-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $sub_wisata->nama }}</h3>
-                                    <div style="color: rgb(0, 0, 0); font-weight: 400; font-size: 14px; text-align: justify; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis;">
-                                        {!! $sub_wisata->deskripsi !!}
-                                    </div>
-                                    <div class="tour-action mt-4">
-                                        <a href="{{ route('user.sub-wisata-show', $sub_wisata->slug) }}" class="th-btn style4 th-icon">Lihat Detail</a>
+                    <div class="slider-area tour-slider mt-5">
+                        <div class="swiper th-slider has-shadow"
+                            data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"2"},"1200":{"slidesPerView":"3"},"1300":{"slidesPerView":"4"}}}'>
+                            <div class="swiper-wrapper justify-content-between">
+                                @forelse ($item->subwisata as $sub_wisata)
+                                <div class="swiper-slide">
+                                    <div class="tour-box th-ani gsap-cursor">
+                                        <div class="tour-box_img global-img">
+                                            <img src="{{ asset('storage/' . $sub_wisata->galerisubwisata->first()->image) }}" alt="image">
+                                        </div>
+                                        <div class="tour-content">
+                                            <h3 class="box-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $sub_wisata->nama }}</h3>
+                                            <div style="color: rgb(0, 0, 0); font-weight: 400; font-size: 14px; text-align: justify; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis;">
+                                                {!! $sub_wisata->deskripsi !!}
+                                            </div>
+                                            <div class="tour-action mt-4">
+                                                <a href="{{ route('user.sub-wisata-show', $sub_wisata->slug) }}" class="th-btn style4 th-icon">Lihat Detail</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        @empty
+                                @empty
 
-                        @endforelse
+                                @endforelse
+                            </div>
+                        </div> 
+                        <div class="text-center mt-5">
+                            <h3 class="page-title mt-45 mb-30 text-center">Rekomendasi Wisata Lainnya</h3>
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination justify-content-between">
+                                  <li class="page-item">
+                                    @if (getMinIdWisata() != $item->id)
+                                    <a class="th-btn" href="{{ route('user.wisata-show', backWisata($item->slug)) }}" aria-label="Previous">
+                                       <img src="{{ url('frontend/assets/img/icon/arrow-left.svg') }}" alt=""> {{ namaBackWisata($item->slug) }}
+                                    </a>
+                                    @endif
+                                  </li>
+                                  <li class="page-item">
+                                    @if (getMaxIdWisata() != $item->id)
+                                    <a class="th-btn th-icon" href="{{ route('user.wisata-show', nextWisata($item->slug)) }}" aria-label="Next">
+                                        {{ namaNextWisata($item->slug) }}
+                                    </a>
+                                    @endif
+                                  </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
-                </div>
-                <div class="text-center mt-5">
-                    <h3 class="page-title mt-45 mb-30 text-center">Rekomendasi Wisata Lainnya</h3>
-                    <nav aria-label="Page navigation"> 
-                        <ul class="pagination justify-content-between">
-                          <li class="page-item">
-                            @if (getMinIdWisata() != $item->id)
-                            <a class="th-btn" href="{{ route('user.wisata-show', backWisata($item->slug)) }}" aria-label="Previous">
-                               <img src="{{ url('frontend/assets/img/icon/arrow-left.svg') }}" alt=""> {{ namaBackWisata($item->slug) }}
-                            </a>
-                            @endif
-                          </li>
-                          <li class="page-item">
-                            @if (getMaxIdWisata() != $item->id)
-                            <a class="th-btn th-icon" href="{{ route('user.wisata-show', nextWisata($item->slug)) }}" aria-label="Next">
-                                {{ namaNextWisata($item->slug) }}
-                            </a>
-                            @endif
-                          </li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
         </div>

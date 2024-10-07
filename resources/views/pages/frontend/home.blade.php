@@ -348,8 +348,8 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-5">
-                <a href="destination.html" class="popup-content th-btn style3 th-icon">Lihat Semua</a>
+            <div class="text-center mt-4">
+                <a href="{{ route('wisata') }}" class="popup-content th-btn style3 th-icon">Lihat Semua</a>
             </div>
         </div>
     </div>
@@ -391,7 +391,7 @@
                                             {!! $item->deskripsi !!}
                                         </div>
                                         <div class="tour-action mt-4">
-                                            <a href="tour-details.html" class="th-btn style4 th-icon">Lihat Detail</a>
+                                            <a href="{{ route('user.hotel-show', $item->slug) }}" class="th-btn style4 th-icon">Lihat Detail</a>
                                         </div>
                                     </div>
                                 </div>
@@ -400,7 +400,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-5">
+            <div class="text-center mt-4">
                 <a href="{{ route('hotel') }}" class="th-btn style3 th-icon">Lihat Semua</a>
             </div>
         </div>
@@ -435,7 +435,7 @@
                                             {!! $item->deskripsi !!}
                                         </div>
                                         <div class="tour-action mt-4">
-                                            <a href="tour-details.html" class="th-btn style4 th-icon">Lihat Detail</a>
+                                            <a href="{{ route('user.kuliner-show', $item->slug) }}" class="th-btn style4 th-icon">Lihat Detail</a>
                                         </div>
                                     </div>
                                 </div>
@@ -444,7 +444,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-5">
+            <div class="text-center mt-4">
                 <a href="{{ route('kuliner') }}" class="th-btn style3 th-icon">Lihat Semua</a>
             </div>
         </div>
