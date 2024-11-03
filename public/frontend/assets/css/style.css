@@ -1,4 +1,5 @@
-@charset "UTF-8";
+@cha
+rset "UTF-8";
 /*
 Template Name: Tourm
 Template URL: https://themeholy.com/html/Tourm/
@@ -3050,8 +3051,15 @@ hr.title-line {
 [data-bg-src] {
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-position: center center; */
 }
+
+@media (max-width: 991px) {
+    .background-image,
+    [data-bg-src] {
+    background-repeat: repeat;
+    background-size: contain;
+    }
+  }
 
 .bg-fluid {
   background-repeat: no-repeat;
@@ -9646,14 +9654,7 @@ ul.comment-list:has(> .th-comment-item ~ .th-comment-item):first-child > .th-pos
   z-index: 2;
 }
 
-.hero-1 .th-hero-bg:before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(13, 13, 12, 0.5);
-  mix-blend-mode: normal;
-  z-index: -1;
-}
+
 
 .hero-1 .th-swiper-custom {
   position: absolute;
@@ -22552,6 +22553,30 @@ span.select2-selection.select2-selection--single:focus {
   position: relative;
   margin: -35px 0;
   z-index: 8;
+}
+
+.button-group {
+    display: none; /* Sembunyikan secara default */
+    flex-wrap: wrap; /* Agar tombol dapat membungkus ke baris berikutnya */
+    gap: 10px; /* Jarak antar tombol */
+}
+
+@media (max-width: 768px) { /* Tampilkan hanya pada tampilan mobile */
+    .button-group {
+        display: flex;
+        justify-content: center;
+    }
+
+    .th-btn {
+        flex: 1 1 45%; /* Setiap tombol mengambil 45% dari lebar baris */
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    /* Pastikan tombol ketiga (Kuliner) berada di baris kedua */
+    .th-btn:nth-child(3) {
+        flex-basis: 100%; /* Memaksa tombol ketiga menggunakan lebar penuh */
+    }
 }
 
 /*# sourceMappingURL=style.css.map */

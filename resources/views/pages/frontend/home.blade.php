@@ -12,49 +12,45 @@
         <div class="swiper th-slider hero-slider-1" id="heroSlide1"
             data-slider-options='{"effect":"fade","menu": ["", "", ""],"heroSlide1": {"swiper-container": {"pagination": {"el": ".swiper-pagination", "clickable": true }}}}'>
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
+                <div class="swiper-slide d-none d-md-block">
                     <div class="hero-inner">
-                        <div class="th-hero-bg" data-bg-src="{{ url('frontend/assets/img/hero/hero_bg_1_1.jpg') }}">
+                        <div class="th-hero-bg" data-bg-src="{{ url('frontend/assets/img/hero/1.png') }}">
                         </div>
                         <div class="container">
                             <div class="hero-style1">
-                                <span class="sub-title style1" data-ani="slideinup" data-ani-delay="0.2s">Get unforgetable
-                                    pleasure with us</span>
+                                <span class="sub-title style1" data-ani="slideinup" data-ani-delay="0.2s">&nbsp;<span>
                                 <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.4s">
-                                    Natural Wonder of the world </h1>
+                                    &nbsp;</h1>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide d-none d-md-block">
                     <div class="hero-inner">
-                        <div class="th-hero-bg" data-bg-src="{{ url('frontend/assets/img/hero/hero_bg_1_2.jpg') }}">
+                        <div class="th-hero-bg" data-bg-src="{{ url('frontend/assets/img/hero/2.png') }}">
                         </div>
                         <div class="container">
                             <div class="hero-style1">
-                                <span class="sub-title style1" data-ani="slideinup" data-ani-delay="0.2s">Get unforgetable
-                                    pleasure with us</span>
+                                <span class="sub-title style1" data-ani="slideinup" data-ani-delay="0.2s">ayo berkunjung ke Kota Bengkulu</span>
                                 <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.4s">
-                                    Let’s make your best trip with us </h1>
+                                    SIPARTA Bengkulu </h1>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide d-md-none d-sm-block">
                     <div class="hero-inner">
-                        <div class="th-hero-bg" data-bg-src="{{ url('frontend/assets/img/hero/hero_bg_1_3.jpg') }}">
+                        <div class="th-hero-bg" data-bg-src="{{ url('frontend/assets/img/hero/3.png') }}">
                         </div>
                         <div class="container">
                             <div class="hero-style1">
-                                <span class="sub-title style1" data-ani="slideinup" data-ani-delay="0.2s">Get unforgetable
-                                    pleasure with us</span>
+                                <span class="sub-title style1" data-ani="slideinup" data-ani-delay="0.2s">&nbsp;</span>
                                 <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.4s">
-                                    Explore beauty of the whole</h1>
+                                    &nbsp; </h1>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="th-swiper-custom">
                 <button data-slider-prev="#heroSlide1" class="slider-arrow slider-prev"><img
@@ -83,6 +79,16 @@
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <div class="container">
+            <div class="text-center button-group">
+                <a class="th-btn" href="{{ route('wisata') }}">Wisata</a>
+                <a class="th-btn" href="{{ route('hotel') }}">Hotel</a>
+                <a class="th-btn" href="{{ route('kuliner') }}">Kuliner dan Oleh-oleh</a>
+            </div>
         </div>
     </div>
     <!--==============================
@@ -198,12 +204,12 @@
                     <div class="swiper-slide">
                         <div class="destination-box gsap-cursor">
                             <div class="destination-img">
-                                <img src="{{ url('frontend/assets/img/destination/destination_1_1.jpg') }}"
+                                <img src="{{ url('frontend/assets/img/destination/pantai_panjang.jpg') }}"
                                     alt="destination image">
                                 <div class="destination-content">
                                     <div class="media-left">
                                         <h4 class="box-title">
-                                            <a>Maldives</a>
+                                            <a>Pantai Panjang</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -213,12 +219,12 @@
                     <div class="swiper-slide">
                         <div class="destination-box gsap-cursor">
                             <div class="destination-img">
-                                <img src="{{ url('frontend/assets/img/destination/destination_1_2.jpg') }}"
+                                <img src="{{ url('frontend/assets/img/destination/cugung_abbas.jpg') }}"
                                     alt="destination image">
                                 <div class="destination-content">
                                     <div class="media-left">
                                         <h4 class="box-title">
-                                            <a>Thailand</a>
+                                            <a>Tapan Busik Cugung Abbas</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -228,12 +234,12 @@
                     <div class="swiper-slide">
                         <div class="destination-box gsap-cursor">
                             <div class="destination-img">
-                                <img src="{{ url('frontend/assets/img/destination/destination_1_3.jpg') }}"
+                                <img src="{{ url('frontend/assets/img/destination/benteng.jpg') }}"
                                     alt="destination image">
                                 <div class="destination-content">
                                     <div class="media-left">
                                         <h4 class="box-title">
-                                            <a>Belgium</a>
+                                            <a>Benteng Marlborough</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -243,12 +249,12 @@
                     <div class="swiper-slide">
                         <div class="destination-box gsap-cursor">
                             <div class="destination-img">
-                                <img src="{{ url('frontend/assets/img/destination/destination_1_4.jpg') }}"
+                                <img src="{{ url('frontend/assets/img/destination/danau_dendam.jpeg') }}"
                                     alt="destination image">
                                 <div class="destination-content">
                                     <div class="media-left">
                                         <h4 class="box-title">
-                                            <a>Island</a>
+                                            <a>Danau Dendam Tak Sudah</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -258,12 +264,12 @@
                     <div class="swiper-slide">
                         <div class="destination-box gsap-cursor">
                             <div class="destination-img">
-                                <img src="{{ url('frontend/assets/img/destination/destination_1_5.jpg') }}"
+                                <img src="{{ url('frontend/assets/img/destination/bung_karno.jpg') }}"
                                     alt="destination image">
                                 <div class="destination-content">
                                     <div class="media-left">
                                         <h4 class="box-title">
-                                            <a>Maldives</a>
+                                            <a>Rumah Pengasingan Bung Karno</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -273,28 +279,12 @@
                     <div class="swiper-slide">
                         <div class="destination-box gsap-cursor">
                             <div class="destination-img">
-                                <img src="{{ url('frontend/assets/img/destination/destination_1_1.jpg') }}"
+                                <img src="{{ url('frontend/assets/img/destination/berendo.jpg') }}"
                                     alt="destination image">
                                 <div class="destination-content">
                                     <div class="media-left">
                                         <h4 class="box-title">
-                                            <a>Maldives</a>
-                                        </h4>
-                                        <!-- <span class="destination-subtitle">15 Listing</span> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="destination-box gsap-cursor">
-                            <div class="destination-img">
-                                <img src="{{ url('frontend/assets/img/destination/destination_1_2.jpg') }}"
-                                    alt="destination image">
-                                <div class="destination-content">
-                                    <div class="media-left">
-                                        <h4 class="box-title">
-                                            <a>Thailand</a>
+                                            <a>Berendo Bengkulu</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -304,12 +294,12 @@
                     <div class="swiper-slide">
                         <div class="destination-box gsap-cursor">
                             <div class="destination-img">
-                                <img src="{{ url('frontend/assets/img/destination/destination_1_3.jpg') }}"
+                                <img src="{{ url('frontend/assets/img/destination/pantai_malabero.jpeg') }}"
                                     alt="destination image">
                                 <div class="destination-content">
                                     <div class="media-left">
                                         <h4 class="box-title">
-                                            <a>Belgium</a>
+                                            <a>Pantai Malabero</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -319,27 +309,12 @@
                     <div class="swiper-slide">
                         <div class="destination-box gsap-cursor">
                             <div class="destination-img">
-                                <img src="{{ url('frontend/assets/img/destination/destination_1_4.jpg') }}"
+                                <img src="{{ url('frontend/assets/img/destination/pulau_tikus.jpg') }}"
                                     alt="destination image">
                                 <div class="destination-content">
                                     <div class="media-left">
                                         <h4 class="box-title">
-                                            <a>Island</a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="destination-box gsap-cursor">
-                            <div class="destination-img">
-                                <img src="{{ url('frontend/assets/img/destination/destination_1_5.jpg') }}"
-                                    alt="destination image">
-                                <div class="destination-content">
-                                    <div class="media-left">
-                                        <h4 class="box-title">
-                                            <a>Maldives</a>
+                                            <a>Pulau Tikus</a>
                                         </h4>
                                     </div>
                                 </div>
@@ -529,7 +504,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="title-area text-center">
-                    <span class="sub-title">Wisata, Hotel, Kuliner dan Oleh-Oleh</span>
+                    <span class="sub-title">Wisata, Hotel, <br> Kuliner dan Oleh-Oleh</span>
                     <h2 class="sec-title">Data</h2>
 
                 </div>

@@ -44,11 +44,22 @@ Header Area
                                 <li><a class="{{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About SIPARTA</a></li>
                             </ul>
                         </nav>
-                        <button type="button" class="th-menu-toggle d-block d-xl-none"><i class="far fa-bars"></i></button>
+                        <button type="button" class="th-menu-toggle d-block d-xl-none"><i class="fa fa-bars"></i></button>
                     </div>
                     <div class="col-auto d-none d-xl-block">
                         <div class="header-button">
-                            <a href="#login-form" class="popup-content th-btn style3 th-icon">Sign In</a>
+                            @if (Auth::user())
+                                @if (Auth::user()->roles == 'ADMIN')
+                                    <a href="{{ route('dashboard') }}" class="th-btn style3 th-icon">Dashboard</a>
+                                @else
+                                    <form action="{{ url('logout') }}" method="POST">
+                                        @csrf
+                                        <button class="th-btn style3 th-icon" type="submit">Logout</button>
+                                    </form>
+                                @endif
+                            @else
+                                <a href="#login-form" class="popup-content th-btn style3 th-icon">Sign In</a>
+                            @endif
                         </div>
                     </div>
                 </div>

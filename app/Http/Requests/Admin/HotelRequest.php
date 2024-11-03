@@ -28,7 +28,7 @@ class HotelRequest extends FormRequest
             'deskripsi' => 'required',
             'alamat' => 'required|max:255',
             'link_reservasi' => 'required|max:255',
-            'link_video' => 'required|max:255'
+            'link_video' => 'nullable'
         ];
     }
 }

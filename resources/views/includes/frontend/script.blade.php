@@ -18,8 +18,8 @@ All Js File
 <!-- isotope -->
 <script src="{{ url('frontend/assets/js/isotope.pkgd.min.js') }}"></script>
 <!-- gsap -->
-<script src="{{ url('frontend/assets/js/gsap.min.js') }}"></script>
-<!-- circle-progress --> 
+{{--  <script src="{{ url('frontend/assets/js/gsap.min.js') }}"></script>  --}}
+<!-- circle-progress -->
 <script src="{{ url('frontend/assets/js/circle-progress.js') }}"></script>
 <script src="{{ url('frontend/assets/js/matter.min.js') }}"></script>
 <script src="{{ url('frontend/assets/js/matterjs-custom.js') }}"></script>

@@ -19,6 +19,8 @@
             </div>
         </div>
     </div>
+
+<section data-bg-src="{{ url('frontend/assets/img/batik-besurek.png') }}">
     <!--==============================
         Peta
         ==============================-->
@@ -27,8 +29,7 @@
             <div class="col-lg-12">
                 <div class="tour-page-single">
                     <div class="location-map">
-                        <div class="contact-map" id="peta-wisata" style="height: 400px;">
-                        </div>
+                        <div class="contact-map" id="peta-wisata" style="height: 400px;"></div>
                     </div>
                 </div>
             </div>
@@ -87,7 +88,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> 
+</section>
+
+
 @endsection
 
 @push('after-style')
@@ -100,21 +104,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.src.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@2.4.0/Control.FullScreen.min.js"></script>
-
     <script>
-        {{--  var mapOptions = {
-          center: [-3.7973233483994835, 102.26600088555267],
-          zoom: 12,
-        };
-
-        var map = new L.map("peta-wisata", mapOptions);
-
-        var layer = new L.TileLayer(
-          "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        );
-
-        map.addLayer(layer);  --}}
-
         var map = L.map('peta-wisata').setView([-3.785632, 102.297779], 12);
         const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -130,33 +120,20 @@
                 $.each(response.wisata, function (key, value) {
                     let data;
                     data = value.coordinate;
-                    /* let foto;
-                    if (value.foto == null) {
-                        foto = '{{ asset('man.png') }}';
-                    } else {
-                        foto = "{{ asset('foto-pribadi') }}" + '/' + value.foto;
-                    }*/
                     const splitted = data.split(",");
-                    L.marker([splitted[0], splitted[1]]).addTo(markerGroup)
-                        /*.bindPopup("<center><img src='" + foto + "' width='60' /><br><br>" + value
-                            .nama_lengkap +
-                            "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
-                            "<a href=/kartu-keluarga/anggota/" + value.id +
-                            "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Keluarga</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
-                            [splitted[0], splitted[1]] +
-                            "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
-                        );*/
-                        .bindPopup("<center><br>" + value
-                            .nama +
-                            "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
-                            "<a href=/wisata/" + value.slug +
-                            "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Wisata</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
-                            [splitted[0], splitted[1]] +
-                            "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
-                        );
+                    console.log(value.slug);
+                    L.marker([splitted[0], splitted[1]]).addTo(markerGroup).bindPopup("<center><br>" + value
+                        .nama +
+                        "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
+                        "<a href=/wisata/" + value.slug +
+                        "><span class='text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail " + value
+                        .nama +
+                        "</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
+                        [splitted[0], splitted[1]] +
+                        "'><br><span class='text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Maps</span></a></center>");
                 });
-
             }
         });
       </script>
-@endpush
+    @endpush
+

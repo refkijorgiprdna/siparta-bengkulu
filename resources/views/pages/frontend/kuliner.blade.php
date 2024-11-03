@@ -19,68 +19,73 @@
             </div>
         </div>
     </div>
-    <!--==============================
-    Peta
-    ==============================-->
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <div class="tour-page-single">
-                    <div class="location-map">
-                        <div class="contact-map" id="peta-kuliner" style="height: 400px;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--==============================
-    Kuliner dan Oleh-Oleh
-    ==============================-->
-    <section class="space-extra2">
-        <div class="container">
-            <div class="th-sort-bar">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-md-4 ms-auto">
-                        <div class="search-form-area text-end">
-                            <form class="search-form" action="{{ route('kuliner') }}" method="get">
-                                <input id="cari_kuliner" name="nama_kuliner" type="text" class="form-control" value="{{ request()->nama_kuliner }}" placeholder="Cari Kuliner dan Oleh-Oleh">
-                                <button type="submit"><i class="fa-light fa-magnifying-glass"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xxl-12 col-lg-8">
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade active show" id="tab-grid" role="tabpanel" aria-labelledby="tab-destination-grid">
-                            <div class="row gy-30 justify-content-center">
-                                @foreach ($items as $item)
-                                    <div class="col-xxl-3 col-xl-6">
-                                        <div class="tour-box th-ani">
-                                            <div class="tour-box_img global-img">
-                                                <img src="{{ url('storage/' . $item->galerikuliner->first()->image) }}" alt="image">
-                                            </div>
-                                            <div class="tour-content">
-                                                <h3 class="box-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $item->nama }}</h3>
-                                                <div style="color: rgb(41, 41, 41); font-size: 14px; text-align: justify; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis;">
-                                                    {!! $item->deskripsi !!}
-                                                </div>
-                                                <div class="tour-action justify-content-center" style="margin-top: 20px;">
-                                                    <a href="{{ route('user.kuliner-show', $item->slug) }}" class="th-btn style4 th-icon">Lihat Detail</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
+
+    <section data-bg-src="{{ url('frontend/assets/img/batik-besurek.png') }}">
+        <!--==============================
+            Peta
+            ==============================-->
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="tour-page-single">
+                            <div class="location-map">
+                                <div class="contact-map" id="peta-kuliner" style="height: 400px;">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <!--==============================
+            Kuliner dan Oleh-Oleh
+            ==============================-->
+            <section class="space-extra2">
+                <div class="container">
+                    <div class="th-sort-bar">
+                        <div class="row justify-content-between align-items-center">
+                            <div class="col-md-4 ms-auto">
+                                <div class="search-form-area text-end">
+                                    <form class="search-form" action="{{ route('kuliner') }}" method="get">
+                                        <input id="cari_kuliner" name="nama_kuliner" type="text" class="form-control" value="{{ request()->nama_kuliner }}" placeholder="Cari Kuliner dan Oleh-Oleh">
+                                        <button type="submit"><i class="fa-light fa-magnifying-glass"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xxl-12 col-lg-8">
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade active show" id="tab-grid" role="tabpanel" aria-labelledby="tab-destination-grid">
+                                    <div class="row gy-30 justify-content-center">
+                                        @foreach ($items as $item)
+                                            <div class="col-xxl-3 col-xl-6">
+                                                <div class="tour-box th-ani">
+                                                    <div class="tour-box_img global-img">
+                                                        <img src="{{ url('storage/' . $item->galerikuliner->first()->image) }}" alt="image">
+                                                    </div>
+                                                    <div class="tour-content">
+                                                        <h3 class="box-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $item->nama }}</h3>
+                                                        <div style="color: rgb(41, 41, 41); font-size: 14px; text-align: justify; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis;">
+                                                            {!! $item->deskripsi !!}
+                                                        </div>
+                                                        <div class="tour-action justify-content-center" style="margin-top: 20px;">
+                                                            <a href="{{ route('user.kuliner-show', $item->slug) }}" class="th-btn style4 th-icon">Lihat Detail</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
     </section>
+
+
 @endsection
 
 @push('after-style')
@@ -111,10 +116,11 @@
                         .nama +
                         "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
                         "<a href=/kuliner-dan-oleh-oleh/" + value.slug +
-                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Kuliner dan Oleh-Oleh</span></a> <a target='_blank' href='https://www.google.com/maps?saddr=My+Location&daddr=" +
+                        "><span class='text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail " + value
+                        .nama +
+                        "</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
                         [splitted[0], splitted[1]] +
-                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
-                    );
+                        "'><br><span class='text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Maps</span></a></center>");
             });
         }
     });

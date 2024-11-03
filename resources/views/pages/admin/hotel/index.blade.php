@@ -73,9 +73,11 @@ Hotel | Admin SIPARTA
                                         </td>
                                         <td>{{ $item->alamat }}</td>
                                         <td class="text-center">
+                                            @if ($item->galerihotel->count() > 0)
                                             <a href="{{ route('galeri-hotel.show', $item->id) }}" class="btn btn-success">
                                                 <i class="fa fa-image"></i>
                                             </a>
+                                            @endif
                                             <a href="{{ route('hotel.edit', $item->id) }}" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>

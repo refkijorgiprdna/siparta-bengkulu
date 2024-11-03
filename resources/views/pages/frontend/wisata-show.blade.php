@@ -92,7 +92,7 @@
                     <div class="slider-area tour-slider mt-5">
                         <div class="swiper th-slider has-shadow"
                             data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"2"},"1200":{"slidesPerView":"3"},"1300":{"slidesPerView":"4"}}}'>
-                            <div class="swiper-wrapper justify-content-between">
+                            <div class="swiper-wrapper justify-content-start">
                                 @forelse ($item->subwisata as $sub_wisata)
                                 <div class="swiper-slide">
                                     <div class="tour-box th-ani gsap-cursor">
@@ -114,7 +114,7 @@
 
                                 @endforelse
                             </div>
-                        </div> 
+                        </div>
                         <div class="text-center mt-5">
                             <h3 class="page-title mt-45 mb-30 text-center">Rekomendasi Wisata Lainnya</h3>
                             <nav aria-label="Page navigation">

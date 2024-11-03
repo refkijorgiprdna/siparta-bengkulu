@@ -96,10 +96,10 @@ Tambah Data Hotel | Admin SIPARTA
                             <label for="link_reservasi">Link Reservasi</label>
                             <input type="text" class="form-control" name="link_reservasi" placeholder="Link Reservasi" value="{{ old('link_reservasi') }}">
                         </div>
-                        <div class="mb-3">
+                        {{--  <div class="mb-3">
                             <label for="link_video">Link Video</label>
                             <input type="text" class="form-control" name="link_video" placeholder="Link Video" value="{{ old('link_video') }}">
-                        </div>
+                        </div>  --}}
                         <button type="submit" class="btn btn-primary btn-sm my-2">Simpan</button>
                     </form>
                 </div>

@@ -43,7 +43,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_1.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_1.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -55,7 +55,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_2.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_2.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -67,7 +67,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_3.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_3.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -79,7 +79,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_4.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_4.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -91,7 +91,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_5.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_5.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -103,7 +103,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_6.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_6.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -115,7 +115,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_7.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_7.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -127,7 +127,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_8.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_8.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -139,7 +139,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_9.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_9.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -151,7 +151,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_10.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_10.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -163,7 +163,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_11.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_11.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -175,7 +175,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_12.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_12.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -187,7 +187,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_13.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_13.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -199,7 +199,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_14.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_14.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -211,7 +211,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_15.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_15.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -223,7 +223,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_16.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_16.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -235,7 +235,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_17.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_17.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -247,7 +247,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_18.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_18.svg",
                     xScale: 1,
                     yScale: 1
                 }
@@ -259,7 +259,7 @@ function initSimulation() {
             },
             render: {
                 sprite: {
-                    texture: "./assets/img/shape/elements_1_19.svg",
+                    texture: "../frontend/assets/img/shape/elements_1_19.svg",
                     xScale: 1,
                     yScale: 1
                 }

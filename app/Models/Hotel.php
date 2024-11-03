@@ -10,7 +10,7 @@ class Hotel extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'nama', 'slug', 'coordinate', 'deskripsi', 'alamat', 
+        'nama', 'slug', 'bintang','coordinate', 'deskripsi', 'alamat', 'link_reservasi'
     ];
 
     protected $hidden = [
