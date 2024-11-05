@@ -171,14 +171,16 @@
                 let data;
                 data = value.coordinate;
                 const splitted = data.split(",");
-                L.marker([splitted[0], splitted[1]]).addTo(markerGroup)
-                    .bindPopup("<center><br>" + value.nama +
+                L.marker([splitted[0], splitted[1]]).addTo(markerGroup) 
+                    .bindPopup("<center><br>" + value
+                        .nama +
                         "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
                         "<a href=/wisata/sub-wisata/" + value.slug +
-                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Wisata</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
+                        "><span class='text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail " + value
+                        .nama +
+                        "</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
                         [splitted[0], splitted[1]] +
-                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
-                    );
+                        "'><br><span class='text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Maps</span></a></center>");
             });
         }
     });

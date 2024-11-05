@@ -40,11 +40,24 @@
                 </div>
                 <div class="swiper-slide d-md-none d-sm-block">
                     <div class="hero-inner">
-                        <div class="th-hero-bg" data-bg-src="{{ url('frontend/assets/img/hero/3.png') }}">
+                        <div class="th-hero-bg" data-bg-src="{{ url('frontend/assets/img/hero/mobile_1.png') }}">
                         </div>
                         <div class="container">
                             <div class="hero-style1">
                                 <span class="sub-title style1" data-ani="slideinup" data-ani-delay="0.2s">&nbsp;</span>
+                                <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.4s">
+                                    &nbsp; </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide d-md-none d-sm-block">
+                    <div class="hero-inner">
+                        <div class="th-hero-bg" data-bg-src="{{ url('frontend/assets/img/hero/mobile_2.png') }}">
+                        </div>
+                        <div class="container">
+                            <div class="hero-style1">
+                                <span class="sub-title style1" data-ani="slideinup" data-ani-delay="0.2s">ayo berkunjung ke <br> Kota Bengkulu</span>
                                 <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.4s">
                                     &nbsp; </h1>
                             </div>

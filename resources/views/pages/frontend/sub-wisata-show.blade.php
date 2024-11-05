@@ -177,10 +177,11 @@
                         .nama +
                         "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
                         "<a href=/wisata/sub-wisata/" + value.slug +
-                        "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail Wisata</span></a> <a target='_blank' href='https://www.google.com/maps?saddr=My+Location&daddr=" +
+                        "><span class='text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail " + value
+                        .nama +
+                        "</span></a> <a href='https://www.google.com/maps?saddr=My+Location&daddr=" +
                         [splitted[0], splitted[1]] +
-                        "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>"
-                    );
+                        "'><br><span class='text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Maps</span></a></center>");
             });
         }
     });
@@ -192,8 +193,8 @@
             L.marker([coordinates[0], coordinates[1]], { icon: icon })
                 .addTo(group)
                 .bindPopup("<center><br>" + value.nama + "</br><br><b class='mb-5' style='margin-bottom:100px;'></b>" +
-                    "<a href=/" + urlPrefix + "/" + value.slug + "><span class='badge rounded-pill text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i> Detail</span></a> " +
-                    "<a target='_blank' href='https://www.google.com/maps?saddr=My+Location&daddr=" + [coordinates[0], coordinates[1]] + "'><span class='badge rounded-pill text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i> Rute Google Map</span></a></center>");
+                    "<a href=/" + urlPrefix + "/" + value.slug + "><span class='text-bg-primary'><i class='fa fa-address-card' aria-hidden='true'></i>Detail " + value.nama + "</span></a> " +
+                    "<a target='_blank' href='https://www.google.com/maps?saddr=My+Location&daddr=" + [coordinates[0], coordinates[1]] + "'><br><span class='text-bg-danger'><i class='fa fa-location-arrow' aria-hidden='true'></i>Rute Google Maps</span></a></center>");
         });
     }
 
