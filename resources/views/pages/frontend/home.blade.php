@@ -563,7 +563,7 @@
     <!--==============================
     Counter Area
     ==============================-->
-    <div class="counter-area space" data-bg-src="{{ url('frontend/assets/img/bg/category_bg_1.png') }}">
+    {{--  <div class="counter-area space" data-bg-src="{{ url('frontend/assets/img/bg/category_bg_1.png') }}">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="title-area text-center">
@@ -618,7 +618,7 @@
         <div class="shape-mockup jump d-none d-xl-block" data-top="5%" data-right="5%">
             <img src="{{ url('frontend/assets/img/shape/shape_5.png') }}" alt="shape">
         </div>
-    </div>
+    </div>  --}}
 @endsection
 
 

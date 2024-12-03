@@ -98,7 +98,7 @@
     <!--==============================
     Team Area
     ==============================-->
-    <section class="team-area3 position-relative bg-top-center space" data-bg-src="{{ url('frontend/assets/img/bg/team_bg_2.jpg') }}">
+    {{--  <section class="team-area3 position-relative bg-top-center space" data-bg-src="{{ url('frontend/assets/img/bg/team_bg_2.jpg') }}">
         <div class="container z-index-common">
             <div class="title-area text-center">
                 <h2 class="sec-title">DINAS PARIWISATA KOTA BENGKULU</h2>
@@ -202,7 +202,7 @@
                 <button data-slider-next="#teamSlider3" class="slider-arrow slider-next"><img src="{{ url('frontend/assets/img/icon/left-arrow2.svg') }}" alt=""></button>
             </div>
         </div>
-    </section>
+    </section>  --}}
 @endsection
 
 
