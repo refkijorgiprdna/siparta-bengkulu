@@ -14,13 +14,13 @@
                 <div class="col-xl-6">
                     <div class="img-box3">
                         <div class="img1">
-                            <img src="{{ url('frontend/assets/img/normal/about_3_1.jpg') }}" alt="About">
+                            <img src="{{ url('frontend/assets/img/normal/about6.jpeg') }}" alt="About">
                         </div>
                         <div class="img2">
-                            <img src="{{ url('frontend/assets/img/normal/about_3_2.jpg') }}" alt="About">
+                            <img src="{{ url('frontend/assets/img/normal/about4.jpeg') }}" alt="About">
                         </div>
                         <div class="img3 movingX">
-                            <img src="{{ url('frontend/assets/img/normal/about_3_3.jpg') }}" alt="About">
+                            <img src="{{ url('frontend/assets/img/normal/about2.jpeg') }}" alt="About">
                         </div>
                     </div>
                 </div>
@@ -110,15 +110,15 @@
                         <div class="swiper-slide">
                             <div class="th-team team-grid">
                                 <div class="team-img">
-                                    <img src="{{ url('frontend/assets/img/team/team_img_1.jpg') }}" alt="Team">
+                                    <img src="{{ url('frontend/assets/img/team/pantai_malabero.jpeg') }}" alt="Team">
                                 </div>
                                 <div class="team-img2">
                                     <img src="{{ url('frontend/assets/img/team/team_1_1.jpg') }}" alt="Team">
                                 </div>
                                 <div class="team-content">
                                     <div class="media-body">
-                                        <h3 class="box-title"><a href="tour-guider-details.html">Michel Smith</a></h3>
-                                        <span class="team-desig">Tourist Guide</span>
+                                        <h3 class="box-title">Amrullah, SP</h3>
+                                        <span class="team-desig">Kepala Dinas</span>
                                     </div>
                                 </div>
                             </div>
@@ -128,15 +128,15 @@
                         <div class="swiper-slide">
                             <div class="th-team team-grid">
                                 <div class="team-img">
-                                    <img src="{{ url('frontend/assets/img/team/team_img_2.jpg') }}" alt="Team">
+                                    <img src="{{ url('frontend/assets/img/team/pantai_malabero.jpeg') }}" alt="Team">
                                 </div>
                                 <div class="team-img2">
                                     <img src="{{ url('frontend/assets/img/team/team_1_2.jpg') }}" alt="Team">
                                 </div>
                                 <div class="team-content">
                                     <div class="media-body">
-                                        <h3 class="box-title"><a href="tour-guider-details.html">Michel Smith</a></h3>
-                                        <span class="team-desig">Tourist Guide</span>
+                                        <h3 class="box-title">Nina Nurdin, S.Sos., M.Si</h3>
+                                        <span class="team-desig">Sekretaris</span>
                                     </div>
                                 </div>
                             </div>
@@ -146,14 +146,14 @@
                         <div class="swiper-slide">
                             <div class="th-team team-grid">
                                 <div class="team-img">
-                                    <img src="{{ url('frontend/assets/img/team/team_img_3.jpg') }}" alt="Team">
+                                    <img src="{{ url('frontend/assets/img/team/pantai_malabero.jpeg') }}" alt="Team">
                                 </div>
                                 <div class="team-img2">
                                     <img src="{{ url('frontend/assets/img/team/team_1_3.jpg') }}" alt="Team">
                                 </div>
                                 <div class="team-content">
                                     <div class="media-body">
-                                        <h3 class="box-title"><a href="tour-guider-details.html">Michel Smith</a></h3>
+                                        <h3 class="box-title">Michel Smith</h3>
                                         <span class="team-desig">Tourist Guide</span>
                                     </div>
                                 </div>
@@ -164,14 +164,14 @@
                         <div class="swiper-slide">
                             <div class="th-team team-grid">
                                 <div class="team-img">
-                                    <img src="{{ url('frontend/assets/img/team/team_img_1.jpg') }}" alt="Team">
+                                    <img src="{{ url('frontend/assets/img/team/pantai_malabero.jpeg') }}" alt="Team">
                                 </div>
                                 <div class="team-img2">
                                     <img src="{{ url('frontend/assets/img/team/team_1_4.jpg') }}" alt="Team">
                                 </div>
                                 <div class="team-content">
                                     <div class="media-body">
-                                        <h3 class="box-title"><a href="tour-guider-details.html">Michel Smith</a></h3>
+                                        <h3 class="box-title">Michel Smith</h3>
                                         <span class="team-desig">Tourist Guide</span>
                                     </div>
                                 </div>
@@ -182,14 +182,14 @@
                         <div class="swiper-slide">
                             <div class="th-team team-grid">
                                 <div class="team-img">
-                                    <img src="{{ url('frontend/assets/img/team/team_img_2.jpg') }}" alt="Team">
+                                    <img src="{{ url('frontend/assets/img/team/pantai_malabero.jpeg') }}" alt="Team">
                                 </div>
                                 <div class="team-img2">
                                     <img src="{{ url('frontend/assets/img/team/team_1_5.jpg') }}" alt="Team">
                                 </div>
                                 <div class="team-content">
                                     <div class="media-body">
-                                        <h3 class="box-title"><a href="tour-guider-details.html">Michel Smith</a></h3>
+                                        <h3 class="box-title">Michel Smith</h3>
                                         <span class="team-desig">Tourist Guide</span>
                                     </div>
                                 </div>

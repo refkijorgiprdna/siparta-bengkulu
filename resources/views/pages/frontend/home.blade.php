@@ -38,6 +38,30 @@
                         </div>
                     </div>
                 </div>
+                <div class="swiper-slide d-none d-md-block">
+                    <div class="hero-inner">
+                        <div class="th-hero-bg" data-bg-src="{{ url('frontend/assets/img/hero/3.png') }}">
+                        </div>
+                        <div class="container">
+                            <div class="hero-style1">
+                                <span class="sub-title style1" data-ani="slideinup" data-ani-delay="0.2s">&nbsp;</span>
+                                <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.4s">&nbsp;</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide d-none d-md-block">
+                    <div class="hero-inner">
+                        <div class="th-hero-bg" data-bg-src="{{ url('frontend/assets/img/hero/4.png') }}">
+                        </div>
+                        <div class="container">
+                            <div class="hero-style1">
+                                <span class="sub-title style1" data-ani="slideinup" data-ani-delay="0.2s">&nbsp;</span>
+                                <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.4s">&nbsp;</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="swiper-slide d-md-none d-sm-block">
                     <div class="hero-inner">
                         <div class="th-hero-bg" data-bg-src="{{ url('frontend/assets/img/hero/mobile_1.png') }}">
@@ -64,14 +88,40 @@
                         </div>
                     </div>
                 </div>
+                <div class="swiper-slide d-md-none d-sm-block">
+                    <div class="hero-inner">
+                        <div class="th-hero-bg" data-bg-src="{{ url('frontend/assets/img/hero/mobile_3.png') }}">
+                        </div>
+                        <div class="container">
+                            <div class="hero-style1">
+                                <span class="sub-title style1" data-ani="slideinup" data-ani-delay="0.2s">&nbsp;</span>
+                                <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.4s">
+                                    &nbsp; </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide d-md-none d-sm-block">
+                    <div class="hero-inner">
+                        <div class="th-hero-bg" data-bg-src="{{ url('frontend/assets/img/hero/mobile_4.png') }}">
+                        </div>
+                        <div class="container">
+                            <div class="hero-style1">
+                                <span class="sub-title style1" data-ani="slideinup" data-ani-delay="0.2s">&nbsp;</span>
+                                <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.4s">
+                                    &nbsp; </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="th-swiper-custom">
+            {{--  <div class="th-swiper-custom">
                 <button data-slider-prev="#heroSlide1" class="slider-arrow slider-prev"><img
                         src="{{ url('frontend/assets/img/icon/right-arrow.svg') }}" alt=""></button>
                 <div class="slider-pagination"></div>
                 <button data-slider-next="#heroSlide1" class="slider-arrow slider-next"><img
                         src="{{ url('frontend/assets/img/icon/left-arrow.svg') }}" alt=""></button>
-            </div>
+            </div>  --}}
 
         </div>
     </div>
@@ -446,13 +496,13 @@
                 <div class="col-xl-6">
                     <div class="img-box1">
                         <div class="img1">
-                            <img src="{{ url('frontend/assets/img/normal/about_1_1.jpg') }}" alt="About">
+                            <img src="{{ url('frontend/assets/img/normal/about5.jpeg') }}" alt="About">
                         </div>
                         <div class="img2">
-                            <img src="{{ url('frontend/assets/img/normal/about_1_2.jpg') }}" alt="About">
+                            <img src="{{ url('frontend/assets/img/normal/about3.jpeg') }}" alt="About">
                         </div>
                         <div class="img3">
-                            <img src="{{ url('frontend/assets/img/normal/about_1_3.jpg') }}" alt="About">
+                            <img src="{{ url('frontend/assets/img/normal/about1.jpeg') }}" alt="About">
                         </div>
                     </div>
                 </div>
