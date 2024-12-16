@@ -17,7 +17,7 @@ Mobile Menu
                 <li class="menu-item-has-children">
                     <a href="#">Data</a>
                     <ul class="sub-menu">
-                        <li><a href="activities.html">Destinasi Wisata</a></li>
+                        <li><a href="{{ route('destinasi-wisata') }}">Destinasi Wisata</a></li>
                         <li><a href="activities.html">Ekonomi Kreatif</a></li>
                         <li><a href="activities.html">Pemasaran Pariwisata</a></li>
                     </ul>
@@ -54,7 +54,7 @@ Header Area
                                 <li class="menu-item-has-children">
                                     <a href="#">Data</a>
                                     <ul class="sub-menu">
-                                        <li><a href="activities.html">Destinasi Wisata</a></li>
+                                        <li><a href="{{ route('destinasi-wisata') }}">Destinasi Wisata</a></li>
                                         <li><a href="activities.html">Ekonomi Kreatif</a></li>
                                         <li><a href="activities.html">Pemasaran Pariwisata</a></li>
                                     </ul>

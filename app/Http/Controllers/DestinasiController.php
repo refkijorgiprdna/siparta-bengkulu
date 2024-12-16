@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DataController extends Controller
+class DestinasiController extends Controller
 {
 
     /**
@@ -14,6 +14,6 @@ class DataController extends Controller
      */
     public function index()
     {
-        return view('pages.frontend.data');
+        return view('pages.frontend.bidang-destinasi');
     }
 }
