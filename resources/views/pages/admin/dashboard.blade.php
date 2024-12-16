@@ -63,7 +63,7 @@ Dashboard | Admin SIPARTA
                         </div>
 
                         <div class="flex-shrink-0 text-end">
-                           <i class="bx bx-photo-album" style="font-size: 35px; color:orange"></i>
+                           <i class="bx bx-trip" style="font-size: 35px; color:orange"></i>
                         </div>
                     </div>
                 </div><!-- end card body -->
@@ -110,6 +110,77 @@ Dashboard | Admin SIPARTA
             </div><!-- end card -->
         </div><!-- end col -->
     </div><!-- end row-->
+
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0 font-size-18">Data</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-4 col-md-6">
+            <!-- card -->
+            <div class="card card-h-100">
+                <!-- card body -->
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <span class="text-muted mb-3 lh-1 d-block text-truncate">Bidang Destinasi Wisata</span>
+                            <h4 class="mb-3">
+                                <span>{{ $destinasiCount }}</span>
+                            </h4>
+                        </div>
+
+                        <div class="flex-shrink-0 text-end">
+                           <i class="bx bxs-map" style="font-size: 35px; color:red"></i>
+                        </div>
+                    </div>
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+
+        <div class="col-xl-4 col-md-6">
+            <!-- card -->
+            <div class="card card-h-100">
+                <!-- card body -->
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <span class="text-muted mb-3 lh-1 d-block text-truncate">Bidang Ekonomi Kreatif</span>
+                            <h4 class="mb-3">
+                                <span>{{ $ekonomiCount }}</span>
+                            </h4>
+                        </div>
+
+                        <div class="flex-shrink-0 text-end">
+                           <i class="bx bxs-brush-alt" style="font-size: 35px; color:orange"></i>
+                        </div>
+                    </div>
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+
+        <div class="col-xl-4 col-md-6">
+            <!-- card -->
+            <div class="card card-h-100">
+                <!-- card body -->
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <span class="text-muted mb-3 lh-1 d-block text-truncate">Bidang Pemasaran Pariwisata</span>
+                            <h4 class="mb-3">
+                                <span>{{ $pemasaranCount }}</span>
+                            </h4>
+                        </div>
+                        <div class="flex-shrink-0 text-end">
+                            <i class="bx bxs-megaphone" style="font-size: 35px; color:green"></i>
+                        </div>
+                    </div>
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col-->
 
 
 </div>

@@ -13,6 +13,15 @@ Mobile Menu
                 <li><a class="{{ request()->routeIs('wisata') ? 'active' : '' }}" href="{{ route('wisata') }}">Wisata</a></li>
                 <li><a class="{{ request()->routeIs('hotel') ? 'active' : '' }}" href="{{ route('hotel') }}">Hotel</a></li>
                 <li><a class="{{ request()->routeIs('kuliner') ? 'active' : '' }}" href="{{ route('kuliner') }}">Kuliner dan Oleh-oleh</a></li>
+                {{--  <li><a class="{{ request()->routeIs('data') ? 'active' : '' }}" href="{{ route('data') }}">Data</a></li>  --}}
+                <li class="menu-item-has-children">
+                    <a href="#">Data</a>
+                    <ul class="sub-menu">
+                        <li><a href="activities.html">Destinasi Wisata</a></li>
+                        <li><a href="activities.html">Ekonomi Kreatif</a></li>
+                        <li><a href="activities.html">Pemasaran Pariwisata</a></li>
+                    </ul>
+                </li>
                 <li><a class="{{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About SIPARTA</a></li>
             </ul>
         </div>
@@ -41,6 +50,15 @@ Header Area
                                 <li><a class="{{ request()->routeIs('wisata') ? 'active' : '' }}" href="{{ route('wisata') }}">Wisata</a></li>
                                 <li><a class="{{ request()->routeIs('hotel') ? 'active' : '' }}" href="{{ route('hotel') }}">Hotel</a></li>
                                 <li><a class="{{ request()->routeIs('kuliner') ? 'active' : '' }}" href="{{ route('kuliner') }}">Kuliner dan Oleh-oleh</a></li>
+                                {{--  <li><a class="{{ request()->routeIs('data') ? 'active' : '' }}" href="{{ route('data') }}">Data</a></li>  --}}
+                                <li class="menu-item-has-children">
+                                    <a href="#">Data</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="activities.html">Destinasi Wisata</a></li>
+                                        <li><a href="activities.html">Ekonomi Kreatif</a></li>
+                                        <li><a href="activities.html">Pemasaran Pariwisata</a></li>
+                                    </ul>
+                                </li>
                                 <li><a class="{{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About SIPARTA</a></li>
                             </ul>
                         </nav>

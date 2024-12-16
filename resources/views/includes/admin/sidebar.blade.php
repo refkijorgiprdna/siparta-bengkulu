@@ -14,7 +14,7 @@
                                     <i class="bx bx-home-alt"></i>
                                     <span>Dashboard</span>
                                 </a>
-                            </li> 
+                            </li>
 
                             <li class="menu-title">Apps</li>
 
@@ -56,6 +56,12 @@
                                 <a href="{{ route('kuliner.index') }}">
                                     <i class="bx bx-food-menu"></i>
                                     <span>Kuliner dan Oleh-Oleh</span>
+                                </a>
+                            </li>
+                            <li class="@if(Request::segment(2) == 'data') mm-active  @endif">
+                                <a href="{{ route('data.index') }}">
+                                    <i class="bx bx-data"></i>
+                                    <span>Data Bidang</span>
                                 </a>
                             </li>
                         </ul>

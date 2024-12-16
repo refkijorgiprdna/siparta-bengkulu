@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\APIController;
+use App\Http\Controllers\DataController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HotelController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\Admin\GaleriSubWisataController;
 use App\Http\Controllers\Admin\HotelController as AdminHotelController;
 use App\Http\Controllers\Admin\WisataController as AdminWisataController;
 use App\Http\Controllers\Admin\KulinerController as AdminKulinerController;
+use App\Http\Controllers\Admin\DataController as AdminDataController;
 
 
 /*
@@ -46,6 +48,7 @@ Route::get('/kuliner-dan-oleh-oleh', [KulinerController::class, 'index'])->name(
 Route::get('/kuliner-dan-oleh-oleh/{slug}', [KulinerController::class, 'kuliner_show'])->name('user.kuliner-show');
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/data', [DataController::class, 'index'])->name('data');
 
 Route::prefix('admin')
     ->middleware(['auth', 'admin'])
@@ -68,7 +71,7 @@ Route::prefix('admin')
         Route::resource('kuliner', (AdminKulinerController::class));
         Route::resource('galeri-kuliner', (GaleriKulinerController::class));
 
-
+        Route::resource('data', AdminDataController::class);
 
 
     });
