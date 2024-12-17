@@ -33,7 +33,7 @@ class DataController extends Controller
         $file = $request->file('data');
 
         // Gunakan nama file asli dan tambahkan timestamp agar unik
-        $fileName = time() . '-' . $file->getClientOriginalName();
+        $fileName = $file->getClientOriginalName();
 
         // Simpan file ke storage dengan nama asli
         $filePath = $file->storeAs('uploads', $fileName, 'public');
@@ -81,7 +81,7 @@ class DataController extends Controller
             $file = $request->file('data');
 
             // Gunakan nama file asli dan tambahkan timestamp agar unik
-            $fileName = time() . '-' . $file->getClientOriginalName();
+            $fileName = $file->getClientOriginalName();
 
             // Simpan file ke storage dengan nama asli
             $filePath = $file->storeAs('uploads', $fileName, 'public');

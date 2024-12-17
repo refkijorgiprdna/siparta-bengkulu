@@ -3,26 +3,23 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\APIController;
+use App\Http\Controllers\DataController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\KulinerController;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Admin\KalenderController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SubWisataController;
 use App\Http\Controllers\Admin\GaleriHotelController;
 use App\Http\Controllers\Admin\GaleriWisataController;
 use App\Http\Controllers\Admin\GaleriKulinerController;
 use App\Http\Controllers\Admin\GaleriSubWisataController;
+use App\Http\Controllers\Admin\DataController as AdminDataController;
 use App\Http\Controllers\Admin\HotelController as AdminHotelController;
 use App\Http\Controllers\Admin\WisataController as AdminWisataController;
 use App\Http\Controllers\Admin\KulinerController as AdminKulinerController;
-use App\Http\Controllers\Admin\DataController as AdminDataController;
-use App\Http\Controllers\DestinasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +44,9 @@ Route::get('/kuliner-dan-oleh-oleh', [KulinerController::class, 'index'])->name(
 Route::get('/kuliner-dan-oleh-oleh/{slug}', [KulinerController::class, 'kuliner_show'])->name('user.kuliner-show');
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/destinasi-wisata', [DestinasiController::class, 'index'])->name('destinasi-wisata');
+Route::get('/destinasi-wisata', [DataController::class, 'destinasi_wisata'])->name('destinasi-wisata');
+Route::get('/ekonomi-kreatif', [DataController::class, 'ekonomi_kreatif'])->name('ekonomi-kreatif');
+Route::get('/pemasaran-pariwisata', [DataController::class, 'pemasaran_pariwisata'])->name('pemasaran-pariwisata');
 
 Route::prefix('admin')
     ->middleware(['auth', 'admin'])

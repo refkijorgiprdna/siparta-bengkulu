@@ -18,8 +18,8 @@ Mobile Menu
                     <a href="#">Data</a>
                     <ul class="sub-menu">
                         <li><a href="{{ route('destinasi-wisata') }}">Destinasi Wisata</a></li>
-                        <li><a href="activities.html">Ekonomi Kreatif</a></li>
-                        <li><a href="activities.html">Pemasaran Pariwisata</a></li>
+                        <li><a href="{{ route('ekonomi-kreatif') }}">Ekonomi Kreatif</a></li>
+                        <li><a href="{{ route('pemasaran-pariwisata') }}">Pemasaran Pariwisata</a></li>
                     </ul>
                 </li>
                 <li><a class="{{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About SIPARTA</a></li>
@@ -55,8 +55,8 @@ Header Area
                                     <a href="#">Data</a>
                                     <ul class="sub-menu">
                                         <li><a href="{{ route('destinasi-wisata') }}">Destinasi Wisata</a></li>
-                                        <li><a href="activities.html">Ekonomi Kreatif</a></li>
-                                        <li><a href="activities.html">Pemasaran Pariwisata</a></li>
+                                        <li><a href="{{ route('ekonomi-kreatif') }}">Ekonomi Kreatif</a></li>
+                                        <li><a href="{{ route('pemasaran-pariwisata') }}">Pemasaran Pariwisata</a></li>
                                     </ul>
                                 </li>
                                 <li><a class="{{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About SIPARTA</a></li>
