@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 @forelse ($ekonomi_kreatif as $data)
-                    <div class="col-xl-6 col-md-6">
+                    <div class="col-xl-4 col-md-6">
                         <div class="price-card ">
                             <div class="price-card_wrapp">
                                 <div class="price-card_icon">

@@ -23,7 +23,7 @@ class DataController extends Controller
     {
         $validated = $request->validate([
             'nama_bidang' => 'required',
-            'data' => 'nullable|mimes:pdf,xlsx,xls|max:2048',
+            'data' => 'nullable|mimes:pdf,xlsx,xls|max:5120',
             'link_video' => 'nullable|max:255'
         ]);
 
@@ -63,7 +63,7 @@ class DataController extends Controller
     {
         // Validasi input dari form
         $validated = $request->validate([
-            'data' => 'nullable|mimes:pdf,xlsx,xls|max:2048', // Validasi file
+            'data' => 'nullable|mimes:pdf,xlsx,xls|max:5120', // Validasi file
             'link_video' => 'nullable|max:255' // Validasi URL
         ]);
 
