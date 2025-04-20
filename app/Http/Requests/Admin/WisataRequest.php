@@ -26,7 +26,7 @@ class WisataRequest extends FormRequest
             'coordinate' => 'required|max:255',
             'deskripsi' => 'required',
             'alamat' => 'required|max:255',
-            'link_video' => 'required|max:255'
+            'link_video' => 'nullable|max:255'
         ];
     }
 }

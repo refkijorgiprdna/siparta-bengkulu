@@ -13,6 +13,14 @@ class DataController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function sekretariat()
+    {
+        // Ambil data dengan nama bidang tertentu (misalnya 'destinasi wisata')
+        $sekretariat = Data::where('nama_bidang', 'Sekretariat')->get();
+
+        return view('pages.frontend.bidang-sekretariat', compact('sekretariat'));
+    }
+
     public function destinasi_wisata()
     {
         // Ambil data dengan nama bidang tertentu (misalnya 'destinasi wisata')

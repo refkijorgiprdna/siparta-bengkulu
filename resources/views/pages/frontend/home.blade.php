@@ -387,7 +387,7 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a href="{{ route('wisata') }}" class="popup-content th-btn style3 th-icon">Lihat Semua</a>
+                <a href="{{ route('wisata') }}" class="th-btn style3 th-icon">Lihat Semua</a>
             </div>
         </div>
     </div>
@@ -496,7 +496,7 @@
                 <div class="col-xl-6">
                     <div class="img-box1">
                         <div class="img1">
-                            <img src="{{ url('frontend/assets/img/normal/about5.jpeg') }}" alt="About">
+                            <img src="{{ url('frontend/assets/img/normal/about5.jpg') }}" alt="About">
                         </div>
                         <div class="img2">
                             <img src="{{ url('frontend/assets/img/normal/about3.jpeg') }}" alt="About">

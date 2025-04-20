@@ -44,6 +44,7 @@ Route::get('/kuliner-dan-oleh-oleh', [KulinerController::class, 'index'])->name(
 Route::get('/kuliner-dan-oleh-oleh/{slug}', [KulinerController::class, 'kuliner_show'])->name('user.kuliner-show');
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/sekretariat', [DataController::class, 'sekretariat'])->name('sekretariat');
 Route::get('/destinasi-wisata', [DataController::class, 'destinasi_wisata'])->name('destinasi-wisata');
 Route::get('/ekonomi-kreatif', [DataController::class, 'ekonomi_kreatif'])->name('ekonomi-kreatif');
 Route::get('/pemasaran-pariwisata', [DataController::class, 'pemasaran_pariwisata'])->name('pemasaran-pariwisata');

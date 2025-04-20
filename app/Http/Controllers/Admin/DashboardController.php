@@ -24,10 +24,11 @@ class DashboardController extends Controller
 
         // Hitung jumlah data untuk setiap bidang
         $destinasiCount = Data::where('nama_bidang', 'Destinasi Wisata')->count();
+        $sekretariatCount = Data::where('nama_bidang', 'Sekretariat')->count();
         $ekonomiCount = Data::where('nama_bidang', 'Ekonomi Kreatif')->count();
         $pemasaranCount = Data::where('nama_bidang', 'Pemasaran Pariwisata')->count();
 
         return view('pages.admin.dashboard',
-            compact('wisataCount', 'subwisataCount', 'hotelCount', 'kulinerCount', 'destinasiCount', 'ekonomiCount', 'pemasaranCount'));
+            compact('wisataCount', 'subwisataCount', 'hotelCount', 'kulinerCount', 'sekretariatCount', 'destinasiCount', 'ekonomiCount', 'pemasaranCount'));
     }
 }

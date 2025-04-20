@@ -54,6 +54,7 @@ Header Area
                                 <li class="menu-item-has-children">
                                     <a href="#">Data</a>
                                     <ul class="sub-menu">
+                                        <li><a href="{{ route('sekretariat') }}">Sekretariat</a></li>
                                         <li><a href="{{ route('destinasi-wisata') }}">Destinasi Wisata</a></li>
                                         <li><a href="{{ route('ekonomi-kreatif') }}">Ekonomi Kreatif</a></li>
                                         <li><a href="{{ route('pemasaran-pariwisata') }}">Pemasaran Pariwisata</a></li>

@@ -13,7 +13,7 @@
             <div class="breadcumb-content">
                 <h1 class="breadcumb-title">Hotel di Kota Bengkulu</h1>
                 <ul class="breadcumb-menu">
-                    <li><a href="home-travel.html">Beranda</a></li>
+                    <li><a href="{{ route('home') }}">Beranda</a></li>
                     <li>Hotel</li>
                 </ul>
             </div>

@@ -51,6 +51,7 @@ Edit Data Bidang | Admin SIPARTA
                             <label for="nama_bidang">Nama Bidang</label>
                             <select name="nama_bidang" id="nama_bidang" class="form-select" disabled>
                                 <option value="Destinasi Wisata" {{ old('nama_bidang', $item->nama_bidang) == 'Destinasi Wisata' ? 'selected' : '' }}>Destinasi Wisata</option>
+                                <option value="Sekretariat" {{ old('nama_bidang', $item->nama_bidang) == 'Sekretariat' ? 'selected' : '' }}>Sekretariat</option>
                                 <option value="Ekonomi Kreatif" {{ old('nama_bidang', $item->nama_bidang) == 'Ekonomi Kreatif' ? 'selected' : '' }}>Ekonomi Kreatif</option>
                                 <option value="Pemasaran Pariwisata" {{ old('nama_bidang', $item->nama_bidang) == 'Pemasaran Pariwisata' ? 'selected' : '' }}>Pemasaran Pariwisata</option>
                             </select>
@@ -91,7 +92,7 @@ Edit Data Bidang | Admin SIPARTA
         const fileInput = document.getElementById('file-input');
         const linkInput = document.getElementById('link-input');
 
-        if (bidang === 'Destinasi Wisata' || bidang === 'Ekonomi Kreatif') {
+        if (bidang === 'Destinasi Wisata' || bidang === 'Ekonomi Kreatif' || bidang === 'Sekretariat') {
             fileInput.classList.remove('d-none');
             linkInput.classList.add('d-none');
         } else if (bidang === 'Pemasaran Pariwisata') {

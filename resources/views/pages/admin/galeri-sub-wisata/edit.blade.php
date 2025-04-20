@@ -65,7 +65,7 @@ Edit Galeri Wisata | Admin SIPARTA
                     </form>
                 </div>
             </div>
-    </div>
+    </div> 
     <!-- End row -->
 </div>
 <!-- container-fluid -->

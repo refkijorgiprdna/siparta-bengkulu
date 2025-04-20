@@ -120,7 +120,28 @@ Dashboard | Admin SIPARTA
     </div>
 
     <div class="row">
-        <div class="col-xl-4 col-md-6">
+        <div class="col-xl-3 col-md-6">
+            <!-- card -->
+            <div class="card card-h-100">
+                <!-- card body -->
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-grow-1">
+                            <span class="text-muted mb-3 lh-1 d-block text-truncate">Sekretariat</span>
+                            <h4 class="mb-3">
+                                <span>{{ $sekretariatCount }}</span>
+                            </h4>
+                        </div>
+
+                        <div class="flex-shrink-0 text-end">
+                           <i class="bx bxs-briefcase" style="font-size: 35px; color:rgb(0, 76, 255)"></i>
+                        </div>
+                    </div>
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+
+        <div class="col-xl-3 col-md-6">
             <!-- card -->
             <div class="card card-h-100">
                 <!-- card body -->
@@ -141,7 +162,7 @@ Dashboard | Admin SIPARTA
             </div><!-- end card -->
         </div><!-- end col -->
 
-        <div class="col-xl-4 col-md-6">
+        <div class="col-xl-3 col-md-6">
             <!-- card -->
             <div class="card card-h-100">
                 <!-- card body -->
@@ -162,7 +183,7 @@ Dashboard | Admin SIPARTA
             </div><!-- end card -->
         </div><!-- end col -->
 
-        <div class="col-xl-4 col-md-6">
+        <div class="col-xl-3 col-md-6">
             <!-- card -->
             <div class="card card-h-100">
                 <!-- card body -->
