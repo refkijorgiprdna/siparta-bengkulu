@@ -9,7 +9,6 @@ Footer Area
                     <p class="copyright-text text-center">Copyright 2024 <a href="{{ route('home') }}">Dinas Pariwisata Kota Bengkulu</a>. All Rights Reserved.</p>
                 </div>
             </div>
-
         </div>
     </div>
 </footer>
